@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Persona;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class PersonaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        //
+        //dd($persona);
+        return view('admin/persona/busquedaIndex');
     }
 
     /**
@@ -48,9 +52,20 @@ class PersonaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+ /*       return view ('projects.show', [
+            'project' => $project
+        ]);*/
+
+// Acá se le pasan los parámetros de búsqueda
+        $apellido = $request->get('apellido');
+
+        $personas = DB::table('personas')->where('apellido', $apellido)->get();
+        $message="busqueda"; //Se le deberia pasar el request a la vista
+        ///return redirect()->route('admin.persona.busquedaIndex')->with('message',$message);
+        return view('admin/persona/busquedaIndexResultado', ['personas' => $personas])->with('message',$message);
+        //return view('template2.productos.detalle', ['product' => $articulo]);
     }
 
     /**

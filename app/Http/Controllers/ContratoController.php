@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Contrato;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\DB;
 
 class ContratoController extends Controller
 {
@@ -28,7 +29,7 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        //
+          return view('admin/contrato/create');
     }
 
     /**
@@ -39,7 +40,9 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Contrato::create( $request ->all() );
+      $message="El alta del contrato se realizó satisfactoriamente";
+      return redirect()->route('admin.contrato.create')->with('message',$message);
     }
 
     /**

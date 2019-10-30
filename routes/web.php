@@ -25,3 +25,8 @@ Route::get('/contrato','ContratoController@index')->name('contrato.index');
 //ADMINISTRADOR
 Route::get('/AltaDePersona','PersonaController@create')->name('admin.persona.create');
 Route::post('/AltaDePersona','PersonaController@store')->name('admin.persona.store');
+Route::get('/BusquedaDePersonas','PersonaController@index')->name('admin.persona.busquedaIndex');
+Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona.busquedaResultado');
+
+Route::get('/AltaDeContrato','ContratoController@create')->name('admin.contrato.create');
+Route::post('/AltaDeContrato','ContratoController@store')->name('admin.contrato.store');
