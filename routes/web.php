@@ -25,5 +25,8 @@ Route::get('/contrato','ContratoController@index')->name('contrato.index');
 //ADMINISTRADOR
 Route::get('/AltaDePersona','PersonaController@create')->name('admin.persona.create');
 Route::post('/AltaDePersona','PersonaController@store')->name('admin.persona.store');
+<<<<<<< HEAD
 Route::get('/BusquedaDePersonas','PersonaController@index')->name('admin.persona.busquedaIndex');
 Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona.busquedaResultado');
+=======
+>>>>>>> develop
