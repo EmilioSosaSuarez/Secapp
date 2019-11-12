@@ -94,10 +94,10 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="Descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span>
+                        <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion </span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="Descripcion" class="form-control col-md-7 col-xs-12" type="text" name="Descripcion">
+                          <input id="descripcion" class="form-control col-md-7 col-xs-12" type="text" name="descripcion">
                         </div>
                       </div>
                       <div class="form-group">

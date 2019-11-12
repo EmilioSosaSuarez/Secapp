@@ -30,3 +30,5 @@ Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona
 
 Route::get('/AltaDeContrato','ContratoController@create')->name('admin.contrato.create');
 Route::post('/AltaDeContrato','ContratoController@store')->name('admin.contrato.store');
+
+Route::get('/ListaDeContrato','ContratoController@lista')->name('admin.contrato.lista');;

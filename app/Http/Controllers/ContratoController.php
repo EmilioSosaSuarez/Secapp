@@ -89,4 +89,16 @@ class ContratoController extends Controller
     {
         //
     }
+
+    public function lista()
+    {
+      $contratos = Contrato::all();
+
+      return view('admin/contrato/lista')->with('contratos', $contratos);
+
+
+/*        return view('contrato.index',[
+            'projects' => Project::latest()->paginate()
+        ]);*/
+    }
 }

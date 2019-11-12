@@ -13,7 +13,7 @@ class CreateContratosTable extends Migration
      */
     public function up()
     {
-      Schema::create('contratos', function (Blueprint $table) {
+      Schema::create('contrato', function (Blueprint $table) {
           $table->bigIncrements('id');
           $table->string('nombre');
           $table->string('numero');
@@ -33,6 +33,6 @@ class CreateContratosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contratos');
+        Schema::dropIfExists('contrato');
     }
 }
