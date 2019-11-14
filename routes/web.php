@@ -28,4 +28,9 @@ Route::post('/AltaDePersona','PersonaController@store')->name('admin.persona.sto
 Route::get('/BusquedaDePersonas','PersonaController@index')->name('admin.persona.busquedaIndex');
 Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona.busquedaResultado');
 
-
+//CAPACITACIONES
+Route::get('/capacitaciones','CapacitacionesController@index')->name('capacitaciones.index');
+Route::get('/AltaDeCapacitacion','CapacitacionesController@create')->name('admin.capacitaciones.create');
+Route::post('/AltaDeCapacitacion','CapacitacionesController@store')->name('admin.capacitaciones.store');
+Route::get('/BusquedaDeCapacitaciones','CapacitacionesController@index')->name('admin.capacitaciones.busquedaIndex');
+Route::post('/BusquedaDeCapacitaciones','CapacitacionesController@show')->name('admin.capacitaciones.busquedaResultado');
