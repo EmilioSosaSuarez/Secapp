@@ -62,9 +62,9 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(contrato $contrato)
     {
-        //
+        return view('admin.contrato.edit', ['contrato' => $contrato]);//
     }
 
     /**
@@ -74,9 +74,11 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(contrato $contrato)
     {
-        //
+        $contrato->update(request()->all());
+
+        return redirect()->route('admin.contrato.lista');//
     }
 
     /**
@@ -85,9 +87,11 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(contrato $contrato)
     {
-        //
+        $contrato->delete();
+
+        return redirect()->route('admin.contrato.lista');
     }
 
     public function lista()

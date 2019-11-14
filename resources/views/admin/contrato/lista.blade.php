@@ -12,6 +12,7 @@
 
     <!-- Bootstrap -->
     <link href="theme/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css" integrity="sha256-CNwnGWPO03a1kOlAsGaH5g8P3dFaqFqqGFV/1nkX5OU=" crossorigin="anonymous" />
     <!-- Font Awesome -->
     <link href="theme/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -82,6 +83,8 @@
                             <th scope="col">Fecha de Creacion</th>
                             <th scope="col">Fecha de Vencimiento</th>
                             <th scope="col">Estado Actual</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Eliminar</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -95,6 +98,16 @@
                               <td>{{ $contrato->fechaCreacion }}</td>
                               <td>{{ $contrato->fechaVencimiento }}</td>
                               <td>{{ $contrato->estado }}</td>
+                              <td>
+                                <a href="{{ route('admin.contrato.edit', $contrato) }}"><span class="oi oi-pencil"></span></a>
+                              </td>
+                              <td>
+                                <form action="{{ route('admin.contrato.destroy', $contrato) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit"><span class="oi oi-trash"></span></button>
+                                </form>
+                              </td>
                             </tr>
                           <?php endforeach; ?>
                         </tbody>
