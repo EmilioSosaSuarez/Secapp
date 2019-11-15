@@ -24,7 +24,7 @@ class CapacitacionesController extends Controller
      */
     public function create()
     {
-        //
+        return view('capacitaciones/capacitacionesCreate');
     }
 
     /**
