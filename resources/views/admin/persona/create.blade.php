@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('theme/production/images/tipci.ico') }}" type="image/ico" />
 
     <title>Secapp</title>
 
@@ -174,7 +175,7 @@
    					          <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Teléfono </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="telefono" name="telefono" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="telefono" name="telefono" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
    					          <div class="form-group" hidden="true">
