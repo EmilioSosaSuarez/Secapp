@@ -23,5 +23,10 @@ Route::get('/contrato','ContratoController@index')->name('contrato.index');
 
 
 //ADMINISTRADOR
+Route::get('/VerPersona-{id}','PersonaController@ver')->name('admin.persona.ver');
 Route::get('/AltaDePersona','PersonaController@create')->name('admin.persona.create');
 Route::post('/AltaDePersona','PersonaController@store')->name('admin.persona.store');
+Route::get('/EditarPersona-{id}','PersonaController@edit')->name('admin.persona.edit');
+Route::patch('/EditarPersona','PersonaController@update')->name('admin.persona.update');
+Route::get('/BusquedaDePersonas','PersonaController@index')->name('admin.persona.busquedaIndex');
+Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona.busquedaResultado');

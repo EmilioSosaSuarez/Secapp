@@ -213,7 +213,7 @@
       </div>
     </div>
 
-    <!-- jQuery -->
+  <!-- jQuery -->
     <script src="theme/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="theme/vendors/bootstrap/dist/js/bootstrap.min.js"></script>

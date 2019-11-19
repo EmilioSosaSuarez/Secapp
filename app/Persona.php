@@ -22,5 +22,6 @@ class Persona extends Model
 							'celular',
 							'telefono',
 							'estadoLaboral',
-							'fechaAlta'];
+							'fechaAlta',
+							'fechaBaja'];
 }
