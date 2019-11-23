@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Contrato;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\DB;
 
 class ContratoController extends Controller
 {
@@ -28,7 +29,7 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        //
+          return view('admin/contrato/create');
     }
 
     /**
@@ -39,7 +40,9 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Contrato::create( $request ->all() );
+      $message="El alta del contrato se realizó satisfactoriamente";
+      return redirect()->route('admin.contrato.create')->with('message',$message);
     }
 
     /**
@@ -59,9 +62,9 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(contrato $contrato)
     {
-        //
+        return view('admin.contrato.edit', ['contrato' => $contrato]);//
     }
 
     /**
@@ -71,9 +74,11 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(contrato $contrato)
     {
-        //
+        $contrato->update(request()->all());
+
+        return redirect()->route('admin.contrato.lista');//
     }
 
     /**
@@ -82,8 +87,22 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(contrato $contrato)
     {
-        //
+        $contrato->delete();
+
+        return redirect()->route('admin.contrato.lista');
+    }
+
+    public function lista()
+    {
+      $contratos = Contrato::all();
+
+      return view('admin/contrato/lista')->with('contratos', $contratos);
+
+
+/*        return view('contrato.index',[
+            'projects' => Project::latest()->paginate()
+        ]);*/
     }
 }
