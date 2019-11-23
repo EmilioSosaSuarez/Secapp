@@ -30,3 +30,9 @@ Route::get('/EditarPersona-{id}','PersonaController@edit')->name('admin.persona.
 Route::patch('/EditarPersona','PersonaController@update')->name('admin.persona.update');
 Route::get('/BusquedaDePersonas','PersonaController@index')->name('admin.persona.busquedaIndex');
 Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona.busquedaResultado');
+
+
+//INCIDENTES ACCIDENTES
+Route::get('/AltaIncidente','IncidenteController@create')->name('admin.incidente.create');
+Route::post('/AltaIncidente','IncidenteController@store')->name('admin.incidente.store');
+
