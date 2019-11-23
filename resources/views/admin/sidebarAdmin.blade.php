@@ -8,7 +8,7 @@
           <li><a href="{{ route('admin.persona.busquedaIndex') }}">Búsqueda</a></li>
         </ul>
       </li>
-      <li><a href="projects.html"><i class="fa fa-files-o"></i> Contratos </a>
+      <li><a href="{{ route('admin.contrato.lista') }}"><i class="fa fa-files-o"></i> Contratos </a>
       </li>
     </ul>
   </div>
