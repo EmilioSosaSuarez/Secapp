@@ -7,39 +7,37 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('theme/production/images/tipci.ico') }}" type="image/ico" />
 
     <title>Secapp</title>
 
     <!-- Bootstrap -->
-    <link href="theme/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css" integrity="sha256-CNwnGWPO03a1kOlAsGaH5g8P3dFaqFqqGFV/1nkX5OU=" crossorigin="anonymous" />
+    <link href="{{ asset('theme/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="theme/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="theme/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="theme/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
-    <link href="theme/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/google-code-prettify/bin/prettify.min.css') }}" rel="stylesheet">
     <!-- Select2 -->
-    <link href="theme/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
     <!-- Switchery -->
-    <link href="theme/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/switchery/dist/switchery.min.css') }}" rel="stylesheet">
     <!-- starrr -->
-    <link href="theme/vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/starrr/dist/starrr.css') }}" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
-    <link href="theme/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="theme/build/css/custom.min.css" rel="stylesheet">
+    <!-- Custom theme Style -->
+    <link href="{{ asset('theme/build/css/custom.min.css') }}" rel="stylesheet">
 
     <!-- PNotify -->
-    <link href="theme/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="theme/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="theme/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.buttons.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.nonblock.css') }}" rel="stylesheet">
 </head>
-
-<body>
 
 	@extends('escritorioLayout')
 
@@ -64,9 +62,9 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Lista de Contratos</h2>
+                    <h2>Lista de Recursos</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <a href="{{ route('admin.contrato.create') }}" class="btn btn-primary">Nuevo Contrato</a>
+                      <a  class="btn btn-primary">Asignar Nuevo Recurso</a>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -74,54 +72,57 @@
                     <br />
 
 
-                    <?php if ($contratos->isNotEmpty()): ?>
+                    <?php if ($recursos->isNotEmpty()): ?>
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre del Contrato</th>
-                            <th scope="col">Numero del Contrato</th>
-                            <th scope="col">Cliente del Contrato</th>
-                            <th scope="col">Descripcion del Contrato</th>
-                            <th scope="col">Fecha de Creacion</th>
-                            <th scope="col">Fecha de Vencimiento</th>
-                            <th scope="col">Estado Actual</th>
-                            <th scope="col">Ver</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Eliminar</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Sexo</th>
+                            <th scope="col">Fecha de Nacimiento</th>
+                            <th scope="col">Nacionalidad</th>
+                            <th scope="col">CUIL/CUIT</th>
+                            <th scope="col">Provincia</th>
+                            <th scope="col">Cuidad</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Estado Laboral</th>
+                            <th scope="col">Fecha de Alta</th>
+                            <th scope="col">Fecha de Baja</th>
+
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($contratos as $contrato): ?>
+                          <?php foreach ($recursos->$personas as $info): ?>
                             <tr>
-                              <th scope="row">{{ $contrato->id }}</th>
-                              <td>{{ $contrato->nombre }}</td>
-                              <td>{{ $contrato->numero }}</td>
-                              <td>{{ $contrato->cliente }}</td>
-                              <td>{{ $contrato->descripcion }}</td>
-                              <td>{{ $contrato->fechaCreacion }}</td>
-                              <td>{{ $contrato->fechaVencimiento }}</td>
-                              <td>{{ $contrato->estado }}</td>
-                              <td>
-                                <a href="{{ route('contratoshow', $contrato) }}"><span class="oi oi-eye"></span></a>
-                              </td>
-                              <td>
-                                <a href="{{ route('admin.contrato.edit', $contrato) }}"><span class="oi oi-pencil"></span></a>
-                              </td>
-                              <td>
-                                <form action="{{ route('admin.contrato.destroy', $contrato) }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit"><span class="oi oi-trash"></span></button>
-                                </form>
-                              </td>
+                              <th scope="row">{{ $info->id }}</th>
+                              <td>{{ $info->apellido }}</td>
+                              <td>{{ $info->nombre }}</td>
+                              <td>{{ $info->dni }}</td>
+                              <td>{{ $info->sexo }}</td>
+                              <td>{{ $info->fechaNacimiento }}</td>
+                              <td>{{ $info->nacionalidad }}</td>
+                              <td>{{ $info->cuilCuit }}</td>
+                              <td>{{ $info->provincia }}</td>
+                              <td>{{ $info->ciudad }}</td>
+                              <td>{{ $info->direccion }}</td>
+                              <td>{{ $info->email }}</td>
+                              <td>{{ $info->celular }}</td>
+                              <td>{{ $info->telefono }}</td>
+                              <td>{{ $info->estadoLaboral }}</td>
+                              <td>{{ $info->fechaAlta }}</td>
+                              <td>{{ $info->fechaBaja }}</td>
                             </tr>
                           <?php endforeach; ?>
                         </tbody>
                       </table>
 
                   <?php else: ?>
-                      <p>No hay contratos registrados.</p>
+                      <p>No hay recursos registrados.</p>
                   <?php endif; ?>
 
                   </div>

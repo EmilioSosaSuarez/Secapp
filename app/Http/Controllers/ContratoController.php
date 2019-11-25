@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Contrato;
+use App\Persona;
+use App\AsignacionRC;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,7 +55,9 @@ class ContratoController extends Controller
      */
     public function show($id)
     {
-        //
+        $contrato = Contrato::find($id);
+
+        return view('contratoshow', compact('contrato'));
     }
 
     /**
@@ -100,9 +104,16 @@ class ContratoController extends Controller
 
       return view('admin/contrato/lista')->with('contratos', $contratos);
 
-
-/*        return view('contrato.index',[
-            'projects' => Project::latest()->paginate()
-        ]);*/
     }
+
+    public function recursos()
+    {
+      $contratos = Contrato::all();
+      $personas = Persona::all();
+      $recursos = AsignacionRC::all();
+
+      return view('listarecursos')->with('recursos', $recursos);
+
+    }
+
 }

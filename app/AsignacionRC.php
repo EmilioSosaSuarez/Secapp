@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contrato extends Model
+class AsignacionRC extends Model
 {
     protected $table = 'asignacionRC';
     protected $fillable = ['id',

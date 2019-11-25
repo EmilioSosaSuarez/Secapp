@@ -72,7 +72,7 @@
                     <form method="POST" action="{{ route('admin.contrato.store') }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       @csrf
 
-                      <div class="form-group"> {{-- cada uno de estos es un campo a completar, por ejemplo Apellido --}}
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -150,14 +150,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button" onclick="
-                                  new PNotify({
-                                  title: 'Regular Success',
-                                  text: 'That thing that you were trying to do worked!',
-                                  type: 'success',
-                                  styling: 'bootstrap3'
-                              });">Cancelar
-                          </button>
+                          <a href="{{ route('admin.contrato.lista') }}" class="btn btn-primary">Cancelar</a>
 						              <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success">Guardar</button>
                         </div>

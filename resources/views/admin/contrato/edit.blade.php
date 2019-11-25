@@ -7,35 +7,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('theme/production/images/tipci.ico') }}" type="image/ico" />
 
     <title>Secapp</title>
 
     <!-- Bootstrap -->
-    <link href="theme/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="theme/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="theme/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="theme/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
-    <link href="theme/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/google-code-prettify/bin/prettify.min.css') }}" rel="stylesheet">
     <!-- Select2 -->
-    <link href="theme/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
     <!-- Switchery -->
-    <link href="theme/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/switchery/dist/switchery.min.css') }}" rel="stylesheet">
     <!-- starrr -->
-    <link href="theme/vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/starrr/dist/starrr.css') }}" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
-    <link href="theme/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="theme/build/css/custom.min.css" rel="stylesheet">
+    <!-- Custom theme Style -->
+    <link href="{{ asset('theme/build/css/custom.min.css') }}" rel="stylesheet">
 
     <!-- PNotify -->
-    <link href="theme/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="theme/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="theme/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.buttons.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.nonblock.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -151,14 +152,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button" onclick="
-                                  new PNotify({
-                                  title: 'Regular Success',
-                                  text: 'That thing that you were trying to do worked!',
-                                  type: 'success',
-                                  styling: 'bootstrap3'
-                              });">Cancelar
-                          </button>
+                          <a href="{{ route('admin.contrato.lista') }}" class="btn btn-primary">Cancelar</a>
 						              <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
