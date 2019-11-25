@@ -15,6 +15,12 @@
           <li><a href="{{ route('admin.incidente.create') }}">Alta Incidente</a></li>
         </ul>
       </li>
+      <li><a><i class="fa fa-files-o"></i> Capacitaciones <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+            <li><a href="{{ route('admin.capacitaciones.create') }}">Alta Capacitación</a></li>
+            <li><a href="{{ route('admin.capacitaciones.busquedaIndex') }}">Búsqueda</a></li>
+        </ul>
+      </li>
       <! Fin Incidentes   >
 
       </li>
