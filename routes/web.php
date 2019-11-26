@@ -45,3 +45,5 @@ Route::put('/ModContrato/{contrato}', 'ContratoController@update')->name('admin.
 Route::delete('/contrato/{contrato}', 'ContratoController@destroy')->name('admin.contrato.destroy');
 Route::get('/contrato/{contrato}', 'ContratoController@show')->name('contratoshow');
 Route::get('/contrato/{contrato}/recursos','ContratoController@recursos')->name('listarecursos');
+Route::post('/contrato/{contrato}/recursos','ContratoController@asignar')->name('listarecursos.asignar');
+Route::delete('/contrato/{contrato}/recursos','ContratoController@desasignar')->name('listarecursos.desasignar');

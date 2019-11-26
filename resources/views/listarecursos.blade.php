@@ -11,6 +11,48 @@
 
     <title>Secapp</title>
 
+    <style>
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
+
+
     <!-- Bootstrap -->
     <link href="{{ asset('theme/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -64,7 +106,80 @@
                   <div class="x_title">
                     <h2>Lista de Recursos</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <a  class="btn btn-primary">Asignar Nuevo Recurso</a>
+                      <button id="myBtn" class="btn btn-primary">Asignar Nuevo Recurso</button>
+
+
+
+                      <!-- The Modal -->
+                      <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <form method="POST" action="{{ route('listarecursos.asignar', $contratos->id ) }}" id="demo-form2">
+                            @csrf
+                              <input id="id_contrato" name="id_contrato" type=hidden value="{{ $contratos->id }}">
+                              <span class="close">&times;</span>
+                              <?php if ($personas->isNotEmpty()): ?>
+                                <table class="table table-hover">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">ID</th>
+                                      <th scope="col">Apellido</th>
+                                      <th scope="col">Nombre</th>
+                                      <th scope="col">Vinculacion</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <?php foreach ($personas as $persona): ?>
+                                      <tr>
+                                        <input id="id_persona" name="id_persona" type=hidden value="{{ $persona->id }}">
+                                        <th>{{ $persona->id }}</th>
+                                        <td>{{ $persona->apellido }}</td>
+                                        <td>{{ $persona->nombre }}</td>
+                                        <td>
+                                          <button type="submit" class="btn btn-success">Asignar</button>
+                                        </td>
+                                      </tr>
+                                    <?php endforeach; ?>
+                                  </tbody>
+                                </table>
+
+                            <?php else: ?>
+                                <p>No hay personas disponibles.</p>
+                            <?php endif; ?>
+                          </form>
+                        </div>
+
+                      </div>
+                      <script>
+                        // Get the modal
+                        var modal = document.getElementById("myModal");
+
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("myBtn");
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+
+                        // When the user clicks the button, open the modal
+                        btn.onclick = function() {
+                          modal.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                          modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                          if (event.target == modal) {
+                            modal.style.display = "none";
+                          }
+                        }
+                      </script>
+
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -76,23 +191,9 @@
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">ID de Persona</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">DNI</th>
-                            <th scope="col">Sexo</th>
-                            <th scope="col">Fecha de Nacimiento</th>
-                            <th scope="col">Nacionalidad</th>
-                            <th scope="col">CUIL/CUIT</th>
-                            <th scope="col">Provincia</th>
-                            <th scope="col">Cuidad</th>
-                            <th scope="col">Direccion</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Celular</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col">Estado Laboral</th>
-                            <th scope="col">Fecha de Alta</th>
-                            <th scope="col">Fecha de Baja</th>
 
                           </tr>
                         </thead>
@@ -102,20 +203,7 @@
                               <th scope="row">{{ $info->id }}</th>
                               <td>{{ $info->apellido }}</td>
                               <td>{{ $info->nombre }}</td>
-                              <td>{{ $info->dni }}</td>
-                              <td>{{ $info->sexo }}</td>
-                              <td>{{ $info->fechaNacimiento }}</td>
-                              <td>{{ $info->nacionalidad }}</td>
-                              <td>{{ $info->cuilCuit }}</td>
-                              <td>{{ $info->provincia }}</td>
-                              <td>{{ $info->ciudad }}</td>
-                              <td>{{ $info->direccion }}</td>
-                              <td>{{ $info->email }}</td>
-                              <td>{{ $info->celular }}</td>
-                              <td>{{ $info->telefono }}</td>
-                              <td>{{ $info->estadoLaboral }}</td>
-                              <td>{{ $info->fechaAlta }}</td>
-                              <td>{{ $info->fechaBaja }}</td>
+
                             </tr>
                           <?php endforeach; ?>
                         </tbody>
@@ -124,6 +212,7 @@
                   <?php else: ?>
                       <p>No hay recursos registrados.</p>
                   <?php endif; ?>
+
 
                   </div>
                 </div>

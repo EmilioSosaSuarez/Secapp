@@ -112,8 +112,29 @@ class ContratoController extends Controller
       $personas = Persona::all();
       $recursos = AsignacionRC::all();
 
-      return view('listarecursos')->with('recursos', $recursos);
+      return view('listarecursos')->with('recursos', $recursos)->with('contratos', $contratos)->with('personas', $personas);
 
     }
+
+    public function asignar(Request $request)
+    {
+       // $recursos = new AsignacionRC;
+       // $recursos->id_contrato = Input::get('id_contrato');
+       // $recursos->id_persona = Input::get('id_persona');
+       // $recursos->save();
+
+
+      AsignacionRC::create( $request ->all() );
+      $message="Vinculacion Satisfactoria";
+      return redirect()->route('listarecursos')->with('message',$message);
+    }
+
+    public function desasignar(recursos $recursos)
+    {
+        $recursos->delete();
+
+        return redirect()->route('listarecursos');
+    }
+
 
 }
