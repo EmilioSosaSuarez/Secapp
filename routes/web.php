@@ -38,8 +38,9 @@ Route::post('/AltaIncidente','IncidenteController@store')->name('admin.incidente
 
 
 //CAPACITACIONES
-Route::get('/capacitaciones','CapacitacionesController@index')->name('capacitaciones.index');
+Route::get('/Capacitaciones','CapacitacionesController@index')->name('capacitaciones.index');
 Route::get('/AltaDeCapacitacion','CapacitacionesController@create')->name('admin.capacitaciones.create');
 Route::post('/AltaDeCapacitacion','CapacitacionesController@store')->name('admin.capacitaciones.store');
 Route::get('/BusquedaDeCapacitaciones','CapacitacionesController@index')->name('admin.capacitaciones.busquedaIndex');
 Route::post('/BusquedaDeCapacitaciones','CapacitacionesController@show')->name('admin.capacitaciones.busquedaResultado');
+Route::get('CalendarioDeCapacitaciones','CapacitacionesCalendarioController@index')->name('capacitaciones.calendario.index');
