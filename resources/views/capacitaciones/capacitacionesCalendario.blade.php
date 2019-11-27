@@ -37,10 +37,10 @@
     <link href="theme/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="theme/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="theme/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- FullCalendar -->
-    <link href="../vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
-    <link href="../vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+    <link href="theme/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="theme/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
 
 </head>
 
@@ -52,10 +52,12 @@
 		@section('content')
 	        <!-- page content -->
 	        <div class="right_col" role="main">
-	          <div class="">
+	          <div class>
 	            <div class="page-title">
 	              <div class="title_left">
-	                <h3>Calendario de Capacitaciones <small>Click para agregar/editar Eventos</small></h3>
+	                <h3>Calendario de Capacitaciones
+	                	<small>Click para agregar/editar Capacitaciones</small>
+	                </h3>
 	              </div>
 	              <div class="title_right">
 	                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
@@ -111,7 +113,8 @@
 											</span>
 										</button>
 										<button type="button" class="fc-next-button fc-button fc-state-default fc-corner-right">
-											<span class="fc-icon fc-icon-right-single-arrow"></span>
+											<span class="fc-icon fc-icon-right-single-arrow">
+											</span>
 										</button>
 									</div>
 									<button type="button" class="fc-today-button fc-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled" disabled="">today</button>
@@ -129,8 +132,8 @@
 								</div>
 								<div class="fc-clear"></div>
 							</div>
-							<div class="fc-view-container" style="">
-								<div class="fc-view fc-month-view fc-basic-view" style="">
+							<div class="fc-view-container">
+								<div class="fc-view fc-month-view fc-basic-view">
 									<table>
 										<thead class="fc-head">
 											<tr>
@@ -225,8 +228,8 @@
 																				<td class="fc-event-container">
 																					<a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
 																						<div class="fc-content">
-																							<span class="fc-time">12a</span>
-																							<span class="fc-title">All Day Event</span>
+																							<span class="fc-time">12:00</span>
+																							<span class="fc-title">Capacitación 1</span>
 																						</div>
 																					</a>
 																				</td>
@@ -398,11 +401,11 @@
 																				<td></td>
 																				<td></td>
 																				<td></td>
-																				<td class="fc-event-container" colspan="3">
+																				<td class="fc-event-container">
 																					<a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
 																						<div class="fc-content">
-																							<span class="fc-time">12a</span>
-																							<span class="fc-title">Long Event</span>
+																							<span class="fc-time">12:00</span>
+																							<span class="fc-title">Capacitación 2</span>
 																						</div>
 																					</a>
 																				</td>
@@ -461,24 +464,24 @@
 																				<td class="fc-event-container">
 																					<a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
 																						<div class="fc-content">
-																							<span class="fc-time">10:30a</span>
-																							<span class="fc-title">Meeting</span>
+																							<span class="fc-time">10:30</span>
+																							<span class="fc-title">Capacitación 3</span>
 																						</div>
 																					</a>
 																				</td>
 																				<td class="fc-event-container">
 																					<a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
 																						<div class="fc-content">
-																							<span class="fc-time">7p</span>
-																							<span class="fc-title">Birthday Party</span>
+																							<span class="fc-time">07:00</span>
+																							<span class="fc-title">Cumple de Juan</span>
 																						</div>
 																					</a>
 																				</td>
 																				<td class="fc-event-container">
 																					<a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable" href="http://google.com/">
 																						<div class="fc-content">
-																							<span class="fc-time">12a</span>
-																							<span class="fc-title">Click for Google</span>
+																							<span class="fc-time">12:00</span>
+																							<span class="fc-title">Capacitación 4</span>
 																						</div>
 																					</a>
 																				</td>
@@ -568,22 +571,21 @@
     <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myModalLabel">New Calendar Entry</h4>
+            <h4 class="modal-title" id="myModalLabel">Nueva Capacitación</h4>
           </div>
           <div class="modal-body">
             <div id="testmodal" style="padding: 5px 20px;">
               <form id="antoform" class="form-horizontal calender" role="form">
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Title</label>
+                  <label class="col-sm-3 control-label">Nombre</label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="title" name="title">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Description</label>
+                  <label class="col-sm-3 control-label">Temario</label>
                   <div class="col-sm-9">
                     <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
                   </div>
@@ -592,8 +594,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary antosubmit">Guardar</button>
           </div>
         </div>
       </div>
@@ -601,34 +603,31 @@
     <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+            <h4 class="modal-title" id="myModalLabel2">Editar Capacitación</h4>
           </div>
           <div class="modal-body">
-
             <div id="testmodal2" style="padding: 5px 20px;">
               <form id="antoform2" class="form-horizontal calender" role="form">
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Title</label>
+                  <label class="col-sm-3 control-label">Nombre</label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="title2" name="title2">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Description</label>
+                  <label class="col-sm-3 control-label">Temario</label>
                   <div class="col-sm-9">
                     <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
                   </div>
                 </div>
-
               </form>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary antosubmit2">Save changes</button>
+            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary antosubmit2">Guardar</button>
           </div>
         </div>
       </div>
@@ -639,19 +638,19 @@
     <!-- /calendar modal -->
 
     <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="theme/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="theme/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="theme/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="theme/vendors/nprogress/nprogress.js"></script>
     <!-- FullCalendar -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="theme/vendors/moment/min/moment.min.js"></script>
+    <script src="theme/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="theme/build/js/custom.min.js"></script>
 
  </body>
 </html>
