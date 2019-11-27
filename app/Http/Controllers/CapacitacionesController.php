@@ -35,7 +35,9 @@ class CapacitacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Capacitaciones::create( $request ->all() );
+        $message="El alta de la Capacitación se realizó satisfactoriamente";
+        return redirect()->route('admin.capacitaciones.create')->with('message',$message);
     }
 
     /**

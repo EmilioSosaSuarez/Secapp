@@ -23,7 +23,7 @@ class CapacitacionesDictadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('capacitaciones/capacitacionesDictadoCreate');
     }
 
     /**
