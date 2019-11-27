@@ -66,7 +66,7 @@
             <div class="row">
               <!-- Panel 1 - Datos Personales -->
               <div class="col-md-6 col-sm-6">
-                <div class="x_panel">
+                <div class="x_panel" style="min-height: 1000px;">
                   <div class="x_title">
                     <h2>Datos Personales</h2>
                     <div class="clearfix"></div>
@@ -256,15 +256,6 @@
                     </div>
                     <!-- /fechaAlta -->
 
-                    <!-- BOTONES -->
-                    <div class="ln_solid"></div>
-                    <div class="form-group">
-                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-   				              <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                      </div>
-                    </div>
-
                   </form>
 
                   </div>
@@ -272,7 +263,7 @@
               </div>
               <!-- Panel 2 - Datos Laborales -->
               <div class="col-md-6 col-sm-6">
-                <div class="x_panel">
+                <div class="x_panel" style="min-height: 1000px;">
                   <div class="x_title">
                     <h2>Datos Laborales</h2>
                     <div class="clearfix"></div>
@@ -516,7 +507,16 @@
                   <!-- /Capacitaciones -->
                 </div>
               </div>
+              <!-- BOTON CERRAR -->
+              <div class="ln_solid"></div>
+              <div class="center">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+                  <input class="btn btn-primary" style="margin-bottom: 15px;" type="button" onclick="window.close();"
+                  value="Cerrar [X]"/>
+                </div>
+              </div>
             </div>
+          </div>
   		<!-- /page content -->
 
 		<!-- jQuery -->
