@@ -37,6 +37,27 @@
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.buttons.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.nonblock.css') }}" rel="stylesheet">
+    <style>
+    .radio-container {
+        box-sizing: border-box;;
+        line-height: 35px;
+        margin: 0;
+         outline: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+
+
+    .radio-container input {
+         box-sizing: border-box;
+        margin: 0;
+        outline: 0;
+        padding: 0;
+        position: relative;
+        top: 9px;
+        vertical-align: top;
+     }
+</style>
 </head>
 
 <body>
@@ -127,7 +148,7 @@
                             <div class="control-group">
                               <div class="controls">
                                 <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-                                  <input type="text" class="form-control has-feedback-left" name="fechaVencimiento"  id="single_cal1" placeholder="" aria-describedby="inputSuccess2Status" value="{{ old('fechaVencimiento', $contrato->fechaVencimiento) }}">
+                                  <input type="text" class="form-control has-feedback-left" name="fechaVencimiento"  id="single_cal2" placeholder="" aria-describedby="inputSuccess2Status" value="{{ old('fechaVencimiento', $contrato->fechaVencimiento) }}">
                                   <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                   <span id="inputSuccess2Status" class="sr-only">(success)</span>
                                 </div>
@@ -139,7 +160,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado <span class="required">*</span>
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="radio-container">
                           <div id="estado" class="btn-group" data-toggle="buttons">
                             <p>
                               Activo:  <input type="radio" class="flat" name="estado" id="activo" value="A" checked="" required />&nbsp;

@@ -97,7 +97,7 @@
                   <div class="form-group">
                     <label for="descripcion" class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion: </label>
                     <div >
-                      {{ $contrato->description }}
+                      {{ $contrato->descripcion }}
                     </div>
                   </div>
                   <div class="form-group">

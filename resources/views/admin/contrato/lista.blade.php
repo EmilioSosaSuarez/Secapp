@@ -37,6 +37,7 @@
     <link href="theme/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="theme/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="theme/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -102,13 +103,13 @@
                               <td>{{ $contrato->fechaCreacion }}</td>
                               <td>{{ $contrato->fechaVencimiento }}</td>
                               <td>{{ $contrato->estado }}</td>
-                              <td>
+                              <td align="center">
                                 <a href="{{ route('contratoshow', $contrato) }}"><span class="oi oi-eye"></span></a>
                               </td>
-                              <td>
+                              <td align="center">
                                 <a href="{{ route('admin.contrato.edit', $contrato) }}"><span class="oi oi-pencil"></span></a>
                               </td>
-                              <td>
+                              <td align="center">
                                 <form action="{{ route('admin.contrato.destroy', $contrato) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
