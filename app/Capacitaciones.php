@@ -11,6 +11,6 @@ class Capacitaciones extends Model
 							'nombre',
 							'temario',
 							'duracion',
-							'extra'
+							'extra',
 							'fechaAlta'];
 }

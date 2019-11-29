@@ -87,11 +87,10 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="duracion">Duración <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="integer" id=duracion name="duracion" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="duracion">Duración <span class="required">*</span></label>
+                          <div class="col-md-1 col-sm-1 col-xs-1">
+                            <input type="time" id="duracion" name="duracion" required="required" class="form-control col-md-3 col-xs-3">
+                          </div>
                       </div>
  					            <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="extra">Datos Extras</label>
@@ -100,21 +99,20 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de Alta <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-	                        <fieldset>
-	                          <div class="control-group">
-	                            <div class="controls">
-	                              <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-	                                <input type="text" class="form-control has-feedback-left" name="fechaAlta" id="single_cal2" placeholder="" aria-describedby="inputSuccess2Status2" >
-	                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-	                                <span id="inputSuccess2Status2" class="sr-only">(success)</span>
-	                              </div>
-	                            </div>
-	                          </div>
-	                        </fieldset>
-                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de Alta <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                                                <input type="text" class="form-control has-feedback-left" name="fechaAlta"  id="single_cal1" placeholder="" aria-describedby="inputSuccess2Status">
+                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
                       </div>
 
                       <div class="ln_solid"></div>
