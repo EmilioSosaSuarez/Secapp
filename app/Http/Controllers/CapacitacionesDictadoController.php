@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\CapacitacionesDictado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class CapacitacionesDictadoController extends Controller
 {
@@ -34,7 +37,9 @@ class CapacitacionesDictadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        CapacitacionesDictado::create( $request ->all() );
+        $message="El nuevo Dictado se guardo satisfactoriamente";
+        return redirect()->route('capacitaciones.dictado.create')->with('message',$message);
     }
 
     /**

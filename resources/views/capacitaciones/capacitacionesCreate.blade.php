@@ -87,9 +87,9 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="duracion">Duración <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="duracion">Duración (hs) <span class="required">*</span></label>
                           <div class="col-md-1 col-sm-1 col-xs-1">
-                            <input type="time" id="duracion" name="duracion" required="required" class="form-control col-md-3 col-xs-3">
+                            <input type="number" id="duracion" name="duracion" required="required" class="form-control col-md-3 col-xs-3">
                           </div>
                       </div>
  					            <div class="form-group">

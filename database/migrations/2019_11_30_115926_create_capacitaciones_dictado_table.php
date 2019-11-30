@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCapacitacionesTable extends Migration
+class CreateCapacitacionesDictadoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateCapacitacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('capacitaciones', function (Blueprint $table) {
+        Schema::create('capacitacionesDictado', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
+            $table->string('capacitador');
+            $table->string('fecha');
             $table->string('temario');
             $table->number('duracion');
-            $table->string('extra');
-            $table->string('fechaAlta');
+            $table->string('participantes');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateCapacitacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('capacitaciones');
+        Schema::dropIfExists('capacitaciones_dictado');
     }
 }

@@ -68,39 +68,57 @@
                     <form method="POST" action="{{ route('capacitaciones.dictado.store') }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       @csrf
 
-                      <div class="form-group"> {{-- cada uno de estos es un campo a completar, por ejemplo Apellido --}}
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
+                      <div class="form-group row">
+                        <label class="control-label col-md-3 col-sm-3 ">Nombre <span class="required">*</span></label>
+                          <div class="col-md-6 col-sm-6 ">
+                            <select class="form-control col-md-7 col-xs-12" type="text" id="nombre" name="nombre" required="required">
+                              <option disabled selected>Selecciona una opción</option>
+                              <option>Capacitación 1</option>
+                              <option>Capacitación 2</option>
+                              <option>Capacitación 3</option>
+                              <option>Capacitación 4</option>
+                            </select>
+                          </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="capacitador">Capacitador <span class="required">*</span>
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id=capacitador name="capacitador" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
+                          <div class="col-md-6 col-sm-6 ">
+                            <select class="form-control col-md-7 col-xs-12" type="text" id="capacitador" name="capacitador" required="required">
+                              <option disabled selected>Selecciona una opción</option>
+                              <option>Diego</option>
+                              <option>Carlos</option>
+                              <option>Nicolas</option>
+                            </select>
+                          </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="integer" id=fecha name="fecha" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del Dictado <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                                                <input type="text" class="form-control has-feedback-left" name="fecha"  id="single_cal1" placeholder="" aria-describedby="inputSuccess2Status">
+                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
                       </div>
  					            <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="temario">Temario</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="temario">Temario <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="temario" name="temario" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="duracion">Duración <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="integer" id="duracion" name="duracion" class="form-control col-md-7 col-xs-12">
-                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="duracion">Duración (hs) <span class="required">*</span></label>
+                          <div class="col-md-1 col-sm-1 col-xs-1">
+                            <input type="number" id="duracion" name="duracion" required="required" class="form-control col-md-3 col-xs-3">
+                          </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="participantes">Participantes <span class="required">*</span>
