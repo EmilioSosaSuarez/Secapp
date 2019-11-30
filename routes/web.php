@@ -36,3 +36,17 @@ Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona
 Route::get('/AltaIncidente','IncidenteController@create')->name('admin.incidente.create');
 Route::post('/AltaIncidente','IncidenteController@store')->name('admin.incidente.store');
 
+
+//CAPACITACIONES
+Route::get('/Capacitaciones','CapacitacionesController@index')->name('capacitaciones.index');
+Route::get('CalendarioDeCapacitaciones','CapacitacionesCalendarioController@index')->name('capacitaciones.calendario.index');
+Route::get('/AltaDictadoCapacitacion','CapacitacionesDictadoController@create')->name('capacitaciones.dictado.create');
+Route::post('/AltaDictadoCapacitacion','CapacitacionesDictadoController@store')->name('capacitaciones.dictado.store');
+
+//CAPACITACIONES - ADMIN
+Route::get('/AltaDeCapacitacion','CapacitacionesController@create')->name('admin.capacitaciones.create');
+Route::post('/AltaDeCapacitacion','CapacitacionesController@store')->name('admin.capacitaciones.store');
+Route::get('/EditarCapacitacion-{id}','CapacitacionController@edit')->name('admin.capacitaciones.edit');
+Route::patch('/EditarCapacitacion','CapacitacionController@update')->name('admin.capacitaciones.update');
+Route::get('/BusquedaDeCapacitaciones','CapacitacionesController@index')->name('admin.capacitaciones.busquedaIndex');
+Route::post('/BusquedaDeCapacitaciones','CapacitacionesController@show')->name('admin.capacitaciones.busquedaResultado');
