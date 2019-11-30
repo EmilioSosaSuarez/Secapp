@@ -61,8 +61,9 @@
   		<!-- page content -->
           <div class="">
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+              <!-- Panel 1 - Datos Personales -->
+              <div class="col-md-6 col-sm-6">
+                <div class="x_panel" style="min-height: 1000px;">
                   <div class="x_title">
                     <h2>Edición de Persona</h2>
                     <div class="clearfix"></div>
@@ -132,7 +133,7 @@
                         <fieldset>
                           <div class="control-group">
                             <div class="controls">
-                              <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                              <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                 <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
                                 value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
                                 placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
@@ -240,7 +241,7 @@
                         <fieldset>
                           <div class="control-group">
                             <div class="controls">
-                              <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                              <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                 <input type="date" class="form-control has-feedback-left" name="fechaAlta"
                                 value='{{ date('Y-m-d', strtotime($persona->fechaAlta)) }}'
                                 placeholder="Fecha Alta" aria-describedby="inputSuccess2Status2" >
@@ -264,6 +265,251 @@
                   </form>
 
                   </div>
+                </div>
+              </div>
+              <!-- Panel 2 - Datos Laborales -->
+              <div class="col-md-6 col-sm-6">
+                <div class="x_panel" style="min-height: 1000px;">
+                  <div class="x_title">
+                    <h2>Datos Laborales</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <!-- Apto Médico -->
+                  <div class="x_content">
+                    <form method="GET" action="{{ route('admin.persona.ver', ['id' => $persona->id]) }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                      <br />
+                      <!-- Apto Médico SI/NO-->
+                      <div class="form-group row">
+                        <p style="color:blue;font-size:16px;" class="col-form-label col-md-3 col-sm-3">Apto Médico</p>
+                        <div id="sexo" class="col-md-9 col-sm-9 " data-toggle="buttons">
+                          <p>
+                            @if($persona->sexo === 'F') <!-- Si la persona es femenino -->
+
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" required />&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" />
+                            @else <!-- Si la persona es masculino -->
+
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked=""/>&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" required/>
+                            @endif
+                          </p>
+                        </div>
+                      </div>
+                      <!-- /Apto Médico SI/NO-->
+                      <!-- Fecha emisión médica -->
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Emisión
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <fieldset>
+                            <div class="control-group">
+                              <div class="controls">
+                                <div class="col-md-15 xdisplay_inputx form-group has-feedback">
+                                  <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
+                                  value="{{ date('Y-m-d', strtotime("2019-03-20")) }}" placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <!-- /Fecha emisión médica -->
+                      <!-- Fecha vencimiento médico -->
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Vencimiento
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <fieldset>
+                            <div class="control-group">
+                              <div class="controls">
+                                <div class="col-md-15 xdisplay_inputx form-group has-feedback">
+                                  <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
+                                  value="{{ date('Y-m-d', strtotime("2020-03-20")) }}"
+                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <!-- /Fecha vencimiento médico -->
+                    </form>
+                  </div>
+                  <!-- /Apto Médico -->
+                  <!-- Licencia Conducir -->
+                  <div class="x_content">
+                    <form method="GET" action="{{ route('admin.persona.ver', ['id' => $persona->id]) }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <!-- Licencia COnducir SI/NO-->
+                      <div class="form-group row">
+                        <p style="color:blue;font-size:16px;" class="col-form-label col-md-5 col-sm-6" >Licencia de Conducir</p>
+                        <div id="sexo" class="col-md-5 col-sm-6" data-toggle="buttons">
+                          <p>
+                            @if($persona->sexo === 'F') <!-- Si la persona es femenino -->
+
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" required />&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked=""/>
+                            @else <!-- Si la persona es masculino -->
+
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" />&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" required/>
+                            @endif
+                          </p>
+                        </div>
+                      </div>
+                      <!-- /Licencia Conducir SI/NO-->
+                      <!-- Fecha de Emisión -->
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Emisión
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <fieldset>
+                            <div class="control-group">
+                              <div class="controls">
+                                <div class="col-md-15 xdisplay_inputx form-group has-feedback">
+                                  <input type="date" class="form-control has-feedback-left" name="fechaNacimiento" value=''
+                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <!-- /Fecha de Emisión -->
+                      <!-- Fecha Vencimiento Licencia Conducir -->
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Vencimiento
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <fieldset>
+                            <div class="control-group">
+                              <div class="controls">
+                                <div class="col-md-15 xdisplay_inputx form-group has-feedback">
+                                  <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
+                                  value=''
+                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <!-- /Fecha Vencimiento Licencia Conducir -->
+                    </form>
+                  </div>
+                  <!-- Licencia Conducir -->
+                  <!-- Contratos -->
+                  <div class="x_content">
+                    <form method="GET" action="{{ route('admin.persona.ver', ['id' => $persona->id]) }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/Contratos" title="Ir a Contratos" style="color:blue;font-size:16px;"><i class="fa fa-external-link"></i> Contratos</a>
+                      </div>
+
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Contrato</th>
+                            <th>Fecha Alta</th>
+                            <th>Fecha Vencimiento</th>
+                            <th>Estado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Contrato 1</th>
+                            <td>20/01/2019</td>
+                            <td>09/06/2021</td>
+                            <td>Activo</td>
+                          </tr>
+                          <tr>
+                            <th>Contrato 2</th>
+                            <td>20/11/2019</td>
+                            <td>15/10/2021</td>
+                            <td>Inactivo</td>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                  <!-- /Contratos -->
+                  <!-- Cursos -->
+                  <div class="x_content">
+                    <form method="GET" action="{{ route('admin.persona.ver', ['id' => $persona->id]) }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/Contratos" title="Ir a Contratos" style="color:blue;font-size:16px;"><i class="fa fa-external-link"></i> Cursos</a>
+                      </div>
+
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Curso</th>
+                            <th>Fecha Alta</th>
+                            <th>Fecha Vencimiento</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Curso 1</th>
+                            <td>20/01/2019</td>
+                            <td>09/06/2021</td>
+                          </tr>
+                          <tr>
+                            <th>Curso 2</th>
+                            <td>20/11/2019</td>
+                            <td>15/10/2021</td>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                  <!-- /Cursos -->
+                  <!-- Capacitaciones -->
+                  <div class="x_content">
+                    <form method="GET" action="{{ route('admin.persona.ver', ['id' => $persona->id]) }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="fa-hover col-md-6 col-sm-6 col-xs-12"><a href="#/Capacitaciones" title="Ir a Capacitaciones" style="color:blue;font-size:16px;"><i class="fa fa-external-link"></i> Capacitaciones</a>
+                      </div>
+
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Capacitación</th>
+                            <th>Fecha Alta</th>
+                            <th>Fecha Vencimiento</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Capacitación 1</th>
+                            <td>20/01/2019</td>
+                            <td>09/06/2021</td>
+                          </tr>
+                          <tr>
+                            <th>Capacitación 2</th>
+                            <td>09/03/2019</td>
+                            <td>15/10/2021</td>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                  <!-- /Capacitaciones -->
                 </div>
               </div>
             </div>

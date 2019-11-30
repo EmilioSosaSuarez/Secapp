@@ -283,8 +283,8 @@
                               &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" />
                             @else <!-- Si la persona es masculino -->
 
-                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" />&nbsp;
-                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" required/>
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked=""/>&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" required/>
                             @endif
                           </p>
                         </div>
@@ -300,8 +300,7 @@
                               <div class="controls">
                                 <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                   <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
-                                  value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
-                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                  value="{{ date('Y-m-d', strtotime("2019-03-20")) }}" placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
                                 </div>
                               </div>
                             </div>
@@ -319,7 +318,7 @@
                               <div class="controls">
                                 <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                   <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
-                                  value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
+                                  value="{{ date('Y-m-d', strtotime("2020-03-20")) }}"
                                   placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
                                 </div>
                               </div>
@@ -342,8 +341,8 @@
                           <p>
                             @if($persona->sexo === 'F') <!-- Si la persona es femenino -->
 
-                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" required />&nbsp;
-                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" />
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" required />&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked=""/>
                             @else <!-- Si la persona es masculino -->
 
                                 SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" />&nbsp;
@@ -381,7 +380,7 @@
                               <div class="controls">
                                 <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                   <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
-                                  value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
+                                  value=''
                                   placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
                                 </div>
                               </div>
@@ -491,8 +490,8 @@
                             <td>09/06/2021</td>
                           </tr>
                           <tr>
-                            <th>Curso 2</th>
-                            <td>20/Capacitación/2019</td>
+                            <th>Capacitación 2</th>
+                            <td>09/03/2019</td>
                             <td>15/10/2021</td>
                           </tr>
                           <tr>
