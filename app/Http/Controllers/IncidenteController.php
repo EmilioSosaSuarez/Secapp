@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Persona;
-use App\RegistroDeAccidete;
+use App\RegistroDeAccidente;
 
 class incidenteController extends Controller
 {
