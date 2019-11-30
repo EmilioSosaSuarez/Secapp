@@ -35,4 +35,6 @@ Route::post('/BusquedaDePersonas','PersonaController@show')->name('admin.persona
 //INCIDENTES ACCIDENTES
 Route::get('/AltaIncidente','IncidenteController@create')->name('admin.incidente.create');
 Route::post('/AltaIncidente','IncidenteController@store')->name('admin.incidente.store');
+Route::get('/BusquedaDeIncidente','IncidenteController@Index')->name('admin.incidente.busquedaIndex');
+Route::post('/BusquedaDeIncidente','IncidenteController@show')->name('admin.incidente.busquedaResultado');
 

@@ -35,7 +35,7 @@
     <!-- PNotify -->
     <link href="theme/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="theme/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="theme/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">   
+    <link href="theme/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
 </head>
 
 <body>
@@ -86,7 +86,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">1.lugar y fecha del suceso:</label>
                                  <div class="col-md-6 col-sm-6 col-xs-12"></div>
-                            </div>        
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Sector <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -107,7 +107,7 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                            </div>                     
+                            </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Turno: <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
@@ -141,7 +141,7 @@
                                         <select class="form-control col-md-7 col-xs-12" type="text" id="personaId" name="personaId" required="required">
                                             <option disabled selected>Selecciona una opción</option>
                                                  @foreach ($personas as $persona)
-                                            <option value="{{ $persona->nombre }}" {{ old('personaId') == $persona->id ? 'selected' : ''}}>{{ $persona->nombre }}</option>
+                                            <option value="{{ $persona->nombre }}" {{ old('personaId') == $persona->id ? 'selected' : ''}}>{{ $persona->apellido }}</option>
                                                  @endforeach
                                         </select>
                                     </div>
@@ -168,9 +168,9 @@
                                     <!--
                                             @foreach ($personas as $persona)
                                             <option value="{{ $persona->nombre }}" {{ old('personaId') == $persona->id ? 'selected' : ''}}>{{ $persona->nombre }}</option>
-                                            @endforeach   
-                                    -->   
-                                        </select> 
+                                            @endforeach
+                                    -->
+                                        </select>
                                     </div>
                             </div>
                             <div class="form-group row">
@@ -199,7 +199,7 @@
                                             <option>Perdida de materiales medio</option>
                                             <option>Trabajo restringido</option>
                                             <option>Tratamiento médico</option>
-                                            <option>Primeros auxilios</option>              
+                                            <option>Primeros auxilios</option>
                                             <option>Perdida de días</option>
                                             <option>In itinere</option>
                                             <option>Emergencia</option>
@@ -213,7 +213,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         ¿Que actos, condiciones inseguras, factores laborales causaron o pudieron causar el suceso?
                                     </div>
-                            </div>  
+                            </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Causas inmediatas <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
@@ -231,7 +231,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         ¿que se ha hecho o debería hacerse para controlar las causas del suceso?
                                     </div>
-                            </div>  
+                            </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                                     <div class="col-md-6 col-sm-6 ">
@@ -265,9 +265,9 @@
         </div>
 
       <!-- jQuery -->
-     
+
       <!-- bootstrap-progressbar -->
-   
+
       <!-- bootstrap-daterangepicker -->
       <script src="theme/vendors/moment/min/moment.min.js"></script>
       <script src="theme/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -290,12 +290,12 @@
       <!-- starrr -->
       <script src="theme/vendors/starrr/dist/starrr.js"></script>
       <!-- Custom Theme Scripts -->
-      
+
       <!-- PNotify -->
       <script src="theme/vendors/pnotify/dist/pnotify.js"></script>
       <script src="theme/vendors/pnotify/dist/pnotify.buttons.js"></script>
       <script src="theme/vendors/pnotify/dist/pnotify.nonblock.js"></script>
-      
+
 
 
 	   @endsection
