@@ -79,7 +79,6 @@
                       <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                           <tr>
-
                             <th>Nombre del Contrato</th>
                             <th >Numero del Contrato</th>
                             <th >Cliente del Contrato</th>
@@ -87,7 +86,7 @@
                             <th >Fecha de Creacion</th>
                             <th >Fecha de Vencimiento</th>
                             <th >Estado Actual</th>
-                            <th ></th>
+                            <th width="20%"> </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -101,12 +100,13 @@
                               <td>{{ $contrato->fechaVencimiento }}</td>
                               <td>{{ $contrato->estado }}</td>
                               <td>
-                                <a href="{{ route('contratoshow', $contrato) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver</a>
-                                <a href="{{ route('admin.contrato.edit', $contrato) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
                                 <form action="{{ route('admin.contrato.destroy', $contrato) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</button>
+                                <a href="{{ route('contratoshow', $contrato) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver</a>
+                                <a href="{{ route('admin.contrato.edit', $contrato) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
+                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</button>
+
                                 </form>
                               </td>
                             </tr>
