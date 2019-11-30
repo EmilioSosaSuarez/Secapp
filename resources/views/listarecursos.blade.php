@@ -114,9 +114,7 @@
                       <div id="myModal" class="modal">
                         <!-- Modal content -->
                         <div class="modal-content">
-                          <form method="POST" action="{{ route('listarecursos.asignar', $contratos ) }}" id="demo-form2">
-                            @csrf
-                              <input id="id_contrato" name="id_contrato" type=hidden value="{{ $contratos->id }}">
+
                               <span class="close">&times;</span>
                               <?php if ($personas->isNotEmpty()): ?>
                                 <table class="table table-hover">
@@ -131,12 +129,12 @@
                                   <tbody>
                                     <?php foreach ($personas as $persona): ?>
                                       <tr>
-                                        <input id="id_persona" name="id_persona" type=hidden value="{{ $persona->id }}">
+
                                         <th>{{ $persona->id }}</th>
                                         <td>{{ $persona->apellido }}</td>
                                         <td>{{ $persona->nombre }}</td>
                                         <td>
-                                          <button type="submit" class="btn btn-success">Asignar</button>
+                                  
                                         </td>
                                       </tr>
                                     <?php endforeach; ?>

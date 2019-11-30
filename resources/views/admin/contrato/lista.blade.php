@@ -80,16 +80,14 @@
                         <thead>
                           <tr>
 
-                            <th scope="col">Nombre del Contrato</th>
-                            <th scope="col">Numero del Contrato</th>
-                            <th scope="col">Cliente del Contrato</th>
-                            <th scope="col">Descripcion del Contrato</th>
-                            <th scope="col">Fecha de Creacion</th>
-                            <th scope="col">Fecha de Vencimiento</th>
-                            <th scope="col">Estado Actual</th>
-                            <th scope="col">Ver</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Eliminar</th>
+                            <th>Nombre del Contrato</th>
+                            <th >Numero del Contrato</th>
+                            <th >Cliente del Contrato</th>
+                            <th >Descripcion del Contrato</th>
+                            <th >Fecha de Creacion</th>
+                            <th >Fecha de Vencimiento</th>
+                            <th >Estado Actual</th>
+                            <th ></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -102,19 +100,13 @@
                               <td>{{ $contrato->fechaCreacion }}</td>
                               <td>{{ $contrato->fechaVencimiento }}</td>
                               <td>{{ $contrato->estado }}</td>
-
-
-                              <td align="center">
-                                <a href="{{ route('contratoshow', $contrato) }}" class="btn btn-primary btn-xs"><span class="fa fa-folder"></span></a>
-                              </td>
-                              <td align="center">
-                                <a href="{{ route('admin.contrato.edit', $contrato) }}" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
-                              </td>
-                              <td align="center">
+                              <td>
+                                <a href="{{ route('contratoshow', $contrato) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver</a>
+                                <a href="{{ route('admin.contrato.edit', $contrato) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
                                 <form action="{{ route('admin.contrato.destroy', $contrato) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger btn-xs"><span class="fa fa-trash-o"></span></button>
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</button>
                                 </form>
                               </td>
                             </tr>
