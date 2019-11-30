@@ -68,7 +68,10 @@
 		      <td>
                 <a href="{{ route('admin.persona.ver', $persona->id) }}" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
                 <a href="{{ route('admin.persona.edit', $persona->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar </a>
+                <form method="POST" action="{{ route('admin.persona.destroy', $persona->id) }}" style="display: inline;">
+                @csrf @method('DELETE')
+                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar </button>
+                </form>
               </td>
 			</tr>
 		@endforeach

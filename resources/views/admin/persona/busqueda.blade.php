@@ -52,7 +52,7 @@
 	  @include('admin/sidebarAdmin')
 	@endsection
 
-{{-- Si tiene un mensaje es porque se actualizo correctamente, viene del store de Persona
+  {{-- Si tiene un mensaje es porque se eliminó correctamente, viene del destroy de Persona --}}
   @if (Session::has('message'))
     <div class="alert alert-success alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
@@ -61,7 +61,6 @@
       <strong >OK! </strong> {{ Session::get('message') }}
     </div>
   @endif
---}}
 	@section('content')
   		<!-- page content -->
           <div class="">
@@ -183,6 +182,7 @@
                 </div>
               </div>
 
+              {{-- Si Personas está vacío entonces no muestro resultados de la búsqueda--}}
               @if (!empty($personas))
                 @yield('busquedaResultado')
               @endif

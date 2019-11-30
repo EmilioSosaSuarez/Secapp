@@ -133,7 +133,11 @@ class PersonaController extends Controller
      */
     public function destroy(int $id)
     {
-        //
+        $persona = Persona::find($id);
+        $persona->delete();
+
+        $message="El registro con DNI $persona->dni ($persona->apellido $persona->nombre) se eliminó correctamente.";
+        return redirect()->route('admin.persona.busquedaIndex')->with('message',$message);
     }
 
 
