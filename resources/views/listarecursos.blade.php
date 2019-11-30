@@ -136,7 +136,7 @@
                                         <td>{{ $persona->nombre }}</td>
 
                                         <td>
-                                <form method="POST" action="{{ route('listarecursos.asignar') }}" id="demo-form2">
+                                <form method="POST" action="{{ route('listarecursos.asignar', $contrato) }}" id="demo-form2">
                                 @csrf
                                           <input id="id_contrato" name="id_contrato" type=hidden value="{{ $contrato->id }}">
                                           <input id="id_persona" name="id_persona" type=hidden value="{{ $persona->id }}">
