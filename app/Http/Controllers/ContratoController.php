@@ -101,18 +101,22 @@ class ContratoController extends Controller
     public function lista()
     {
       $contratos = Contrato::all();
-      
+
       return view('admin/contrato/lista')->with('contratos', $contratos);
 
     }
 
-    public function recursos()
+    public function recursos(Contrato $contrato)
     {
-      $contratos = Contrato::all();
-      $personas = Persona::all();
-      $recursos = AsignacionRC::all();
 
-      return view('listarecursos')->with('recursos', $recursos)->with('contratos', $contratos)->with('personas', $personas);
+      $personas = Persona::all();
+
+      $recursos = DB::table('personas') ->join('asignacionrc', 'asignacionrc.id_persona', '=', 'personas.id')
+                   ->where('asignacionrc.id_contrato','=', $contrato->id)
+                   ->select('personas.dni','personas.apellido','personas.nombre')
+                   ->get();
+
+      return view('listarecursos')->with('recursos', $recursos)->with('contrato', $contrato)->with('personas', $personas);
 
     }
 
@@ -126,7 +130,11 @@ class ContratoController extends Controller
 
       AsignacionRC::create( $request ->all() );
       $message="Vinculacion Satisfactoria";
-      return redirect()->route('listarecursos')->with('message',$message);
+      $contrato = Contrato::find($request->id_contrato);
+
+      return redirect()->route('listarecursos', $contrato)->with('message',$message);
+      // return redirect()->route('admin.contrato.lista')->with('message',$message);
+
     }
 
     public function desasignar(recursos $recursos)

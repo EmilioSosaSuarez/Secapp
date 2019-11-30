@@ -88,7 +88,7 @@
 	@endsection
 
 {{-- Si tiene un mensaje es porque se actualizo correctamente, viene del store de Contrato --}}
-  @if (Session::has('message'))
+   @if (Session::has('message'))
     <div class="alert alert-success alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
       </button>
@@ -98,6 +98,10 @@
   @endif
 
 	@section('content')
+  {{-- {{ dd($recursos) }} --}}
+  {{-- {{ dd($contrato) }} --}}
+  {{-- {{ dd($personas) }} --}}
+
   		<!-- page content -->
           <div class="">
             <div class="row">
@@ -109,12 +113,10 @@
                       <button id="myBtn" class="btn btn-primary">Asignar Nuevo Recurso</button>
 
 
-
                       <!-- The Modal -->
                       <div id="myModal" class="modal">
                         <!-- Modal content -->
                         <div class="modal-content">
-
                               <span class="close">&times;</span>
                               <?php if ($personas->isNotEmpty()): ?>
                                 <table class="table table-hover">
@@ -127,24 +129,29 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <?php foreach ($personas as $persona): ?>
+                                    @foreach($personas as $persona)
                                       <tr>
-
                                         <th>{{ $persona->id }}</th>
                                         <td>{{ $persona->apellido }}</td>
                                         <td>{{ $persona->nombre }}</td>
+
                                         <td>
-                                  
+                                <form method="POST" action="{{ route('listarecursos.asignar') }}" id="demo-form2">
+                                @csrf
+                                          <input id="id_contrato" name="id_contrato" type=hidden value="{{ $contrato->id }}">
+                                          <input id="id_persona" name="id_persona" type=hidden value="{{ $persona->id }}">
+                                          <button type="submit" class="btn btn-success">Asignar</button>
+                                </form>
                                         </td>
                                       </tr>
-                                    <?php endforeach; ?>
+                                    @endforeach
                                   </tbody>
                                 </table>
 
                             <?php else: ?>
                                 <p>No hay personas disponibles.</p>
                             <?php endif; ?>
-                          </form>
+
                         </div>
 
                       </div>
@@ -188,18 +195,18 @@
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">ID de Persona</th>
+                            <th scope="col">DNI de Persona</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Nombre</th>
 
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($recursos->$personas as $info): ?>
+                          <?php foreach ($recursos as $recurso): ?>
                             <tr>
-                              <th scope="row">{{ $info->id }}</th>
-                              <td>{{ $info->apellido }}</td>
-                              <td>{{ $info->nombre }}</td>
+                              <th scope="row">{{ $recurso->dni }}</th>
+                              <td>{{ $recurso->apellido }}</td>
+                              <td>{{ $recurso->nombre }}</td>
 
                             </tr>
                           <?php endforeach; ?>
