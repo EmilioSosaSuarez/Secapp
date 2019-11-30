@@ -76,10 +76,10 @@
 
 
                     <?php if ($contratos->isNotEmpty()): ?>
-                      <table class="table table-hover">
+                      <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                           <tr>
-                            <th scope="col">Id</th>
+
                             <th scope="col">Nombre del Contrato</th>
                             <th scope="col">Numero del Contrato</th>
                             <th scope="col">Cliente del Contrato</th>
@@ -95,7 +95,6 @@
                         <tbody>
                           <?php foreach ($contratos as $contrato): ?>
                             <tr>
-                              <th scope="row">{{ $contrato->id }}</th>
                               <td>{{ $contrato->nombre }}</td>
                               <td>{{ $contrato->numero }}</td>
                               <td>{{ $contrato->cliente }}</td>
@@ -103,17 +102,19 @@
                               <td>{{ $contrato->fechaCreacion }}</td>
                               <td>{{ $contrato->fechaVencimiento }}</td>
                               <td>{{ $contrato->estado }}</td>
+
+
                               <td align="center">
-                                <a href="{{ route('contratoshow', $contrato) }}"><span class="oi oi-eye"></span></a>
+                                <a href="{{ route('contratoshow', $contrato) }}" class="btn btn-primary btn-xs"><span class="fa fa-folder"></span></a>
                               </td>
                               <td align="center">
-                                <a href="{{ route('admin.contrato.edit', $contrato) }}"><span class="oi oi-pencil"></span></a>
+                                <a href="{{ route('admin.contrato.edit', $contrato) }}" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
                               </td>
                               <td align="center">
                                 <form action="{{ route('admin.contrato.destroy', $contrato) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit"><span class="oi oi-trash"></span></button>
+                                    <button type="submit" class="btn btn-danger btn-xs"><span class="fa fa-trash-o"></span></button>
                                 </form>
                               </td>
                             </tr>

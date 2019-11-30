@@ -101,7 +101,7 @@ class ContratoController extends Controller
     public function lista()
     {
       $contratos = Contrato::all();
-
+      
       return view('admin/contrato/lista')->with('contratos', $contratos);
 
     }

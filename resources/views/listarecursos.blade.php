@@ -112,10 +112,9 @@
 
                       <!-- The Modal -->
                       <div id="myModal" class="modal">
-
                         <!-- Modal content -->
                         <div class="modal-content">
-                          <form method="POST" action="{{ route('listarecursos.asignar', $contratos->id ) }}" id="demo-form2">
+                          <form method="POST" action="{{ route('listarecursos.asignar', $contratos ) }}" id="demo-form2">
                             @csrf
                               <input id="id_contrato" name="id_contrato" type=hidden value="{{ $contratos->id }}">
                               <span class="close">&times;</span>

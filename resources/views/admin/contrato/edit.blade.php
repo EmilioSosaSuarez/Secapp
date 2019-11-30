@@ -37,6 +37,7 @@
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.buttons.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.nonblock.css') }}" rel="stylesheet">
+</head>
     <style>
     .radio-container {
         box-sizing: border-box;;
@@ -131,9 +132,8 @@
 	                          <div class="control-group">
 	                            <div class="controls">
 	                              <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-	                                <input type="text" class="form-control has-feedback-left" name="fechaCreacion"  id="single_cal1" placeholder="" aria-describedby="inputSuccess2Status" value="{{ old('fechaCreacion', $contrato->fechaCreacion) }}">
-	                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-	                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+	                                <input type="date" class="form-control has-feedback-left" name="fechaCreacion"  placeholder="Fecha Creacion" aria-describedby="inputSuccess2Status" value="{{ date('Y-m-d', strtotime($contrato->fechaCreacion)) }}">
+
 	                              </div>
 	                            </div>
 	                          </div>
@@ -148,9 +148,8 @@
                             <div class="control-group">
                               <div class="controls">
                                 <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-                                  <input type="text" class="form-control has-feedback-left" name="fechaVencimiento"  id="single_cal2" placeholder="" aria-describedby="inputSuccess2Status" value="{{ old('fechaVencimiento', $contrato->fechaVencimiento) }}">
-                                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                  <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                  <input type="date" class="form-control has-feedback-left" name="fechaVencimiento"  placeholder="Fecha Vencimiento" aria-describedby="inputSuccess2Status" value="{{ date('Y-m-d', strtotime($contrato->fechaVencimiento)) }}">
+
                                 </div>
                               </div>
                             </div>
@@ -187,45 +186,45 @@
             </div>
   		<!-- /page content -->
 
-		<!-- jQuery -->
-	    <script src="theme/vendors/jquery/dist/jquery.min.js"></script>
-	    <!-- Bootstrap -->
-	    <script src="theme/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-	    <!-- FastClick -->
-	    <script src="theme/vendors/fastclick/lib/fastclick.js"></script>
-	    <!-- NProgress -->
-	    <script src="theme/vendors/nprogress/nprogress.js"></script>
-	    <!-- bootstrap-progressbar -->
-	    <script src="theme/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-	    <!-- iCheck -->
-	    <script src="theme/vendors/iCheck/icheck.min.js"></script>
-	    <!-- bootstrap-daterangepicker -->
-	    <script src="theme/vendors/moment/min/moment.min.js"></script>
-	    <script src="theme/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-	    <!-- bootstrap-wysiwyg -->
-	    <script src="theme/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-	    <script src="theme/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-	    <script src="theme/vendors/google-code-prettify/src/prettify.js"></script>
-	    <!-- jQuery Tags Input -->
-	    <script src="theme/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-	    <!-- Switchery -->
-	    <script src="theme/vendors/switchery/dist/switchery.min.js"></script>
-	    <!-- Select2 -->
-	    <script src="theme/vendors/select2/dist/js/select2.full.min.js"></script>
-	    <!-- Parsley -->
-	    <script src="theme/vendors/parsleyjs/dist/parsley.min.js"></script>
-	    <!-- Autosize -->
-	    <script src="theme/vendors/autosize/dist/autosize.min.js"></script>
-	    <!-- jQuery autocomplete -->
-	    <script src="theme/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-	    <!-- starrr -->
-	    <script src="theme/vendors/starrr/dist/starrr.js"></script>
-	    <!-- Custom Theme Scripts -->
-	    <script src="theme/build/js/custom.min.js"></script>
-      <!-- PNotify -->
-      <script src="theme/vendors/pnotify/dist/pnotify.js"></script>
-      <script src="theme/vendors/pnotify/dist/pnotify.buttons.js"></script>
-      <script src="theme/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+      <!-- jQuery -->
+  	    <script src="{{ asset('theme/vendors/jquery/dist/jquery.min.js') }}"></script>
+  	    <!-- Bootstrap -->
+  	    <script src="{{ asset('theme/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+  	    <!-- FastClick -->
+  	    <script src="{{ asset('theme/vendors/fastclick/lib/fastclick.js') }}"></script>
+  	    <!-- NProgress -->
+  	    <script src="{{ asset('theme/vendors/nprogress/nprogress.js') }}"></script>
+  	    <!-- bootstrap-progressbar -->
+  	    <script src="{{ asset('theme/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+  	    <!-- iCheck -->
+  	    <script src="{{ asset('theme/vendors/iCheck/icheck.min.js') }}"></script>
+  	    <!-- bootstrap-daterangepicker -->
+  	    <script src="{{ asset('theme/vendors/moment/min/moment.min.js') }}"></script>
+  	    <script src="{{ asset('theme/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+  	    <!-- bootstrap-wysiwyg -->
+  	    <script src="{{ asset('theme/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js') }}"></script>
+  	    <script src="{{ asset('theme/vendors/jquery.hotkeys/jquery.hotkeys.js') }}"></script>
+  	    <script src="{{ asset('theme/vendors/google-code-prettify/src/prettify.js') }}"></script>
+  	    <!-- jQuery Tags Input -->
+  	    <script src="{{ asset('theme/vendors/jquery.tagsinput/src/jquery.tagsinput.js') }}"></script>
+  	    <!-- Switchery -->
+  	    <script src="{{ asset('theme/vendors/switchery/dist/switchery.min.js') }}"></script>
+  	    <!-- Select2 -->
+  	    <script src="{{ asset('theme/vendors/select2/dist/js/select2.full.min.js') }}"></script>
+  	    <!-- Parsley -->
+  	    <script src="{{ asset('theme/vendors/parsleyjs/dist/parsley.min.js') }}"></script>
+  	    <!-- Autosize -->
+  	    <script src="{{ asset('theme/vendors/autosize/dist/autosize.min.js') }}"></script>
+  	    <!-- jQuery autocomplete -->
+  	    <script src="{{ asset('theme/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js') }}"></script>
+  	    <!-- starrr -->
+  	    <script src="{{ asset('theme/vendors/starrr/dist/starrr.js') }}"></script>
+  	    <!-- Custom theme Scripts -->
+  	    <script src="{{ asset('theme/build/js/custom.min.js') }}"></script>
+        <!-- PNotify -->
+        <script src="{{ asset('theme/vendors/pnotify/dist/pnotify.js') }}"></script>
+        <script src="{{ asset('theme/vendors/pnotify/dist/pnotify.buttons.js') }}"></script>
+        <script src="{{ asset('theme/vendors/pnotify/dist/pnotify.nonblock.js') }}"></script>
 
 	@endsection
 

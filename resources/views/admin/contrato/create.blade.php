@@ -130,9 +130,8 @@
 	                          <div class="control-group">
 	                            <div class="controls">
 	                              <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-	                                <input type="text" class="form-control has-feedback-left" name="fechaCreacion" id="single_cal2" placeholder="" aria-describedby="inputSuccess2Status2" >
-	                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-	                                <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+	                                <input type="date" class="form-control has-feedback-left" name="fechaCreacion"  placeholder="Fecha Creacion" aria-describedby="inputSuccess2Status2" >
+
 	                              </div>
 	                            </div>
 	                          </div>
@@ -148,9 +147,8 @@
                             <div class="control-group">
                               <div class="controls">
                                 <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-                                  <input type="text" class="form-control has-feedback-left" name="fechaVencimiento" id="single_cal3" placeholder="" aria-describedby="inputSuccess2Status2" >
-                                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                  <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                  <input type="date" class="form-control has-feedback-left" name="fechaVencimiento"  placeholder="Fecha Vencimiento" aria-describedby="inputSuccess2Status2" >
+
                                 </div>
                               </div>
                             </div>
