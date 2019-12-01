@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Persona;
-use App\RegistroDeIncidente;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class incidenteController extends Controller
+class CapacitacionesCalendarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class incidenteController extends Controller
      */
     public function index()
     {
-        //
-         return view('admin/incidente/busquedaIndex');
+        return view('capacitaciones/capacitacionesCalendario');
     }
 
     /**
@@ -27,8 +24,6 @@ class incidenteController extends Controller
      */
     public function create()
     {
-        $personas = Persona::all();
-        return view('admin/incidente/create', compact('personas'));
         //
     }
 
@@ -40,9 +35,6 @@ class incidenteController extends Controller
      */
     public function store(Request $request)
     {
-        RegistroDeIncidente::create( $request ->all() );
-        $message="El Registro de Accidente / Incidente se creo satisfactoriamente";
-        return redirect()->route('admin.incidente.create')->with('message',$message);
         //
     }
 
@@ -52,16 +44,9 @@ class incidenteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-
-        $apellido = $request->get('personaId');
-
-        $incidentes = DB::table('registrosdeincidentes')->where('personaId','=', $apellido)->get();
-        $message="busqueda"; //Se le deberia pasar el request a la vista'
-        //dd($incidentes);
-        return view('admin/incidente/busquedaIndexResultado', ['incidentes' => $incidentes])->with('message',$message);
-
+        //
     }
 
     /**

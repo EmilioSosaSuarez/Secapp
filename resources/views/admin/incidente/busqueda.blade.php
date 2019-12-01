@@ -70,43 +70,25 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Búsqueda de Persona</h2>
+                    <h2>Búsqueda de Incidente Accidente</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
 
-                    <form method="POST" action="{{ route('admin.persona.busquedaResultado') }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form method="POST" action="{{ route('admin.incidente.busquedaResultado') }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       @csrf
-                      <div class="col-md-8 col-sm-12 col-xs-12 form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Laboral <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-12 col-xs-12">
-                          <div id="estadoLaboral" class="btn-group" data-toggle="buttons">
-                            <p>
-                            &nbsp; Todos:  <input type="radio" class="flat" name="estadoLaboral" id="todos" value="todos" checked="" required />&nbsp;
-                            &nbsp; Activos:  <input type="radio" class="flat" name="estadoLaboral" id="activo" value="activo" />&nbsp;
-                            &nbsp; Inactivos: <input type="radio" class="flat" name="estadoLaboral" id="inactivo" value="inactivo" />
-                          </p>
-                          </div>
-                        </div>
-                      </div>
 
                       <br><br><br>
 
                       <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido">Apellido/s </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="apellido" name="apellido" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="personaId" name="personaId" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
-                      <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre/s </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nombre" name="nombre" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
+
 
                       <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                         <label for="dni" class="control-label col-md-3 col-sm-3 col-xs-12">DNI
@@ -116,63 +98,11 @@
                         </div>
                       </div>
 
- 					            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contrato">Contrato </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="contrato" name="contrato" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-
- 					            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="curso">Curso </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="curso" name="curso" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-
- 					            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="capacitacion">Capacitación </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="capacitacion" name="capacitacion" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-
-
-                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">Apto Médico </label>
-
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" class="flat" checked="checked"> SI
-                            </label>
-                            <label>
-                              <input type="checkbox" class="flat"> NO
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">Licencia de Conducir </label>
-
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" class="flat" checked="checked"> SI
-                            </label>
-                            <label>
-                              <input type="checkbox" class="flat"> NO
-                            </label>
-                          </div>
-                         </div>
-                      </div>
-
                       <br><br><br><br><br><br><br><br><br><br><br>
                       <div class="ln_solid"></div>
                       <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						              <button onclick="location.href='{{ route('admin.persona.busquedaIndex') }}'" class="btn btn-primary" type="reset">Reset</button>
+						              <button onclick="location.href='{{ route('admin.incidente.busquedaIndex') }}'" class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success">Iniciar Búsqueda</button>
                         </div>
                       </div>
@@ -182,8 +112,8 @@
                 </div>
               </div>
 
-              {{-- Si Personas está vacío entonces no muestro resultados de la búsqueda--}}
-              @if (!empty($personas))
+              {{-- Si INCIDENTES está vacío entonces no muestro resultados de la búsqueda--}}
+              @if (!empty($incidentes))
                 @yield('busquedaResultado')
               @endif
 
