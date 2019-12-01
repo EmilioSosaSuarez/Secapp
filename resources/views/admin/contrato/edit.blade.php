@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('theme/production/images/tipci.ico') }}" type="image/ico" />
 
     <title>Secapp</title>
-    
+
     <!-- Bootstrap -->
     <link href="{{ asset('theme/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -37,7 +37,7 @@
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.buttons.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/vendors/pnotify/dist/pnotify.nonblock.css') }}" rel="stylesheet">
-    />
+
 </head>
     <style>
     .radio-container {
@@ -93,7 +93,7 @@
                   <div class="x_content">
                     <br />
 
-                    <form method="POST" action="{{ url("ModContrato/{$contrato->id}") }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form method="POST" action="{{ url("ModContrato-{$contrato->id}") }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       {{ method_field('PUT') }}
                       @csrf
 
