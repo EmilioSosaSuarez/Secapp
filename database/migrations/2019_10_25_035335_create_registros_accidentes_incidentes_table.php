@@ -13,7 +13,7 @@ class CreateRegistrosAccidentesIncidentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('registrosAccidentesIncidente', function (Blueprint $table) {
+        Schema::create('registrosdeincidentes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tiposuceso');
             $table->string('sector');

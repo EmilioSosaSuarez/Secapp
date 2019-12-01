@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Persona;
 use App\RegistroDeIncidente;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class incidenteController extends Controller
 {
@@ -97,4 +99,17 @@ class incidenteController extends Controller
     {
         //
     }
+
+ public function pdf(int $id){
+      $incidente = RegistroDeIncidente::find($id);
+      //dd($incidentes);
+      $fecha = Carbon::now();
+      // return view('admin.pdf.report', compact('estacionamientos', 'fecha'));
+      $pdf = PDF::loadView('admin.incidente.report', compact('incidente'));
+      $nombreArchivo = 'Incidente_'. $fecha->format('H:m:s'). '.pdf';
+      return $pdf->download($nombreArchivo);
+    }
+
 }
+
+

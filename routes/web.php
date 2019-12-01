@@ -38,6 +38,7 @@ Route::get('/AltaIncidente','IncidenteController@create')->name('admin.incidente
 Route::post('/AltaIncidente','IncidenteController@store')->name('admin.incidente.store');
 Route::get('/BusquedaDeIncidente','IncidenteController@Index')->name('admin.incidente.busquedaIndex');
 Route::post('/BusquedaDeIncidente','IncidenteController@show')->name('admin.incidente.busquedaResultado');
+Route::get('/verPDF/IncidentePdf-{id}', 'IncidenteController@pdf')->name('admin.incidente.pdf');
 
 //CONTRATOS
 Route::get('/AltaDeContrato','ContratoController@create')->name('admin.contrato.create');

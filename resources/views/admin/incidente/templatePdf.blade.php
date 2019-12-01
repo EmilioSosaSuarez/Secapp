@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-        <title>Certificación</title>
+        <title>Incidete - Accidente</title>
 
     </head>
     <body>
@@ -13,7 +13,7 @@
 
           <div class="row">
             <div class="col-xs-5">
-              <img id="loading-image" src="images/est.png" width="100" height="100" />
+              <img id="loading-image" src="images/tipci-logo.png" width="100" height="100" />
             </div>
           </div>
 
@@ -21,19 +21,19 @@
               <div class="col-xs-5">
                 <table>
                   <tr>
-                    <th><h2><strong>Sistema PAVESUR</strong></h2></th>
+                    <th><h2><strong>Sistema SeCapp</strong></h2></th>
                   </tr>
                   <tr>
-                    <td>
+                    {{-- <td>
                       Fecha: {{ $fecha->format('d/m/Y') }}
-                    </td>
+                    </td> --}}
                   </tr>
-                  <tr>
+                  {{-- <tr>
                     <td>
                       Solicitado por: {{ auth()->user()->name }}
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> --}}
+                  {{-- <tr>
                     <td>
                       eMail: {{ auth()->user()->email }}
                     </td>
@@ -42,13 +42,13 @@
                     <td>
                       Teléfono: {{ auth()->user()->celular }}
                     </td>
-                  </tr>
+                  </tr> --}}
                 </table>
 
               </div>
             </div>
             <div class="row">
-              <div class="col-xs-12"><h4 align="center">REPORTE VEHICULOS ESTACIONADOS</h4></div>
+              <div class="col-xs-12"><h4 align="center">REGISTRO DE ACCIDENTE / INCIDENTE</h4></div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
