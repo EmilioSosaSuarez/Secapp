@@ -60,6 +60,7 @@
                 <form method="POST" action="{{ route('admin.incidente.busquedaIndex') }}" style="display: inline;">
                 @csrf @method('DELETE')
                     <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar </button>
+                <a href="{{ route('admin.incidente.pdf', $incidente->id) }}" class="btn btn-danger btn-xs "><i class="fa fa-file-pdf-o"></i> Exportar PDF</a>
                 </form>
               </td>
 
