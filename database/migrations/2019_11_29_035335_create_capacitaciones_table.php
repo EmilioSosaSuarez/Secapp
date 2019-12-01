@@ -17,7 +17,7 @@ class CreateCapacitacionesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('temario');
-            $table->number('duracion');
+            $table->integer('duracion');
             $table->string('extra');
             $table->string('fechaAlta');
             $table->timestamps();

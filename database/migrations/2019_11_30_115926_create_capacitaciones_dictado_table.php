@@ -19,7 +19,7 @@ class CreateCapacitacionesDictadoTable extends Migration
             $table->string('capacitador');
             $table->string('fecha');
             $table->string('temario');
-            $table->number('duracion');
+            $table->integer('duracion');
             $table->string('participantes');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateCapacitacionesDictadoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('capacitaciones_dictado');
+        Schema::dropIfExists('capacitacionesDictado');
     }
 }
