@@ -66,7 +66,7 @@
             <div class="row">
               <!-- Panel 1 - Datos Personales -->
               <div class="col-md-6 col-sm-6">
-                <div class="x_panel">
+                <div class="x_panel" style="min-height: 1000px;">
                   <div class="x_title">
                     <h2>Datos Personales</h2>
                     <div class="clearfix"></div>
@@ -84,7 +84,7 @@
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="apellido" name="apellido" value="{{ old('apellido', $persona->apellido) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /apellido -->
@@ -94,7 +94,7 @@
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $persona->nombre) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /nombre -->
@@ -104,7 +104,7 @@
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input id="dni" class="form-control col-md-7 col-xs-12" type="text" name="dni"
-                        value="{{ old('dni', $persona->dni) }}">
+                        value="{{ old('dni', $persona->dni) }}" readonly="true">
                       </div>
                     </div>
                     <!-- /DNI -->
@@ -116,12 +116,12 @@
                         <div id="sexo" class="btn-group" data-toggle="buttons">
                           @if($persona->sexo === 'F') <!-- Si la persona es femenino -->
     	                      <p>
-    	                      	Femenino:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" required />&nbsp;
-  	                        &nbsp; Masculino: <input type="radio" class="flat" name="sexo" id="masculino" value="M" />
+    	                      	Femenino:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" readonly="true" />&nbsp;
+  	                        &nbsp; Masculino: <input type="radio" class="flat" name="sexo" id="masculino" value="M" readonly="true"/>
                           @else <!-- Si la persona es masculino -->
                             <p>
-                              Femenino:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" />&nbsp;
-                            &nbsp; Masculino: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" required/>
+                              Femenino:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" readonly="true"/>&nbsp;
+                            &nbsp; Masculino: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" readonly="true"/>
                           @endif
 	                      </p>
                         </div>
@@ -139,7 +139,7 @@
                               <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                 <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
                                 value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
-                                placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status" readonly="true">
                               </div>
                             </div>
                           </div>
@@ -152,9 +152,7 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nacionalidad">Nacionalidad <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nacionalidad" name="nacionalidad"
-                        value="{{ old('nacionalidad', $persona->nacionalidad) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="nacionalidad" name="nacionalidad" value="{{ old('nacionalidad', $persona->nacionalidad) }}" readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /nacionalidad -->
@@ -163,9 +161,7 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuilCuit">CUIL/CUIT <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="cuilCuit" name="cuilCuit"
-                        value="{{ old('cuilCuit', $persona->cuilCuit) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="cuilCuit" name="cuilCuit" value="{{ old('cuilCuit', $persona->cuilCuit) }}" readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- / CUIL/CUIT -->
@@ -174,8 +170,7 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="provincia">Provincia <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="provincia" name="provincia" value="{{ old('provincia', $persona->provincia) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="provincia" name="provincia" value="{{ old('provincia', $persona->provincia) }}" readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /provincia -->
@@ -185,7 +180,7 @@
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="ciudad" name="ciudad" value="{{ old('ciudad', $persona->ciudad) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /ciudad -->
@@ -194,8 +189,7 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion">Dirección <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="direccion" name="direccion" value="{{ old('direccion', $persona->direccion) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="direccion" name="direccion" value="{{ old('direccion', $persona->direccion) }}" readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /direccion -->
@@ -205,7 +199,7 @@
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="email" name="email" value="{{ old('email', $persona->email) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /email -->
@@ -215,7 +209,7 @@
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="celular" name="celular" value="{{ old('celular', $persona->celular) }}"
-                        required="required" class="form-control col-md-7 col-xs-12">
+                        readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /celular -->
@@ -223,16 +217,14 @@
  					          <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Teléfono </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="telefono" name="telefono" value="{{ old('telefono', $persona->telefono) }}" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="telefono" name="telefono" value="{{ old('telefono', $persona->telefono) }}" readonly="true" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /telefono -->
                     <!-- estadoLaboral -->
  					          <div class="form-group" hidden="true">
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="estadoLaboral" name="estadoLaboral"
-                        value="{{ old('estadoLaboral', $persona->estadoLaboral) }}"
-                        required="required" value="inactivo" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="estadoLaboral" name="estadoLaboral" value="{{ old('estadoLaboral', $persona->estadoLaboral) }}" readonly="true" value="inactivo" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                     <!-- /estadoLaboral -->
@@ -247,7 +239,7 @@
                               <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                 <input type="date" class="form-control has-feedback-left" name="fechaAlta"
                                 value='{{ date('Y-m-d', strtotime($persona->fechaAlta)) }}'
-                                placeholder="Fecha Alta" aria-describedby="inputSuccess2Status2" >
+                                placeholder="Fecha Alta" aria-describedby="inputSuccess2Status2" readonly="true">
                               </div>
                             </div>
                           </div>
@@ -256,15 +248,6 @@
                     </div>
                     <!-- /fechaAlta -->
 
-                    <!-- BOTONES -->
-                    <div class="ln_solid"></div>
-                    <div class="form-group">
-                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-   				              <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                      </div>
-                    </div>
-
                   </form>
 
                   </div>
@@ -272,7 +255,7 @@
               </div>
               <!-- Panel 2 - Datos Laborales -->
               <div class="col-md-6 col-sm-6">
-                <div class="x_panel">
+                <div class="x_panel" style="min-height: 1000px;">
                   <div class="x_title">
                     <h2>Datos Laborales</h2>
                     <div class="clearfix"></div>
@@ -288,12 +271,12 @@
                           <p>
                             @if($persona->sexo === 'F') <!-- Si la persona es femenino -->
 
-                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" required />&nbsp;
-                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" />
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" readonly="true" />&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" readonly="true"/>
                             @else <!-- Si la persona es masculino -->
 
-                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" />&nbsp;
-                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" required/>
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" readonly="true"/>&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" readonly="true"/>
                             @endif
                           </p>
                         </div>
@@ -309,8 +292,7 @@
                               <div class="controls">
                                 <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                   <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
-                                  value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
-                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                  value="{{ date('Y-m-d', strtotime("2019-03-20")) }}" placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status" readonly="true">
                                 </div>
                               </div>
                             </div>
@@ -328,8 +310,8 @@
                               <div class="controls">
                                 <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                   <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
-                                  value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
-                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                  value="{{ date('Y-m-d', strtotime("2020-03-20")) }}"
+                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status" readonly="true">
                                 </div>
                               </div>
                             </div>
@@ -351,12 +333,12 @@
                           <p>
                             @if($persona->sexo === 'F') <!-- Si la persona es femenino -->
 
-                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" checked="" required />&nbsp;
-                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" />
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" readonly="true"/>&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" readonly="true"/>
                             @else <!-- Si la persona es masculino -->
 
-                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" />&nbsp;
-                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" required/>
+                                SI:  <input type="radio" class="flat" name="sexo" id="femenino" value="F" readonly="true"/>&nbsp;
+                              &nbsp; NO: <input type="radio" class="flat" name="sexo" id="masculino" value="M" checked="" readonly="true"/>
                             @endif
                           </p>
                         </div>
@@ -372,7 +354,7 @@
                               <div class="controls">
                                 <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                   <input type="date" class="form-control has-feedback-left" name="fechaNacimiento" value=''
-                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status" readonly="true">
                                 </div>
                               </div>
                             </div>
@@ -390,8 +372,7 @@
                               <div class="controls">
                                 <div class="col-md-15 xdisplay_inputx form-group has-feedback">
                                   <input type="date" class="form-control has-feedback-left" name="fechaNacimiento"
-                                  value='{{ date('Y-m-d', strtotime($persona->fechaNacimiento)) }}'
-                                  placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status">
+                                  value='' placeholder="Fecha Nacimiento" aria-describedby="inputSuccess2Status" readonly="true">
                                 </div>
                               </div>
                             </div>
@@ -500,8 +481,8 @@
                             <td>09/06/2021</td>
                           </tr>
                           <tr>
-                            <th>Curso 2</th>
-                            <td>20/Capacitación/2019</td>
+                            <th>Capacitación 2</th>
+                            <td>09/03/2019</td>
                             <td>15/10/2021</td>
                           </tr>
                           <tr>
@@ -516,7 +497,16 @@
                   <!-- /Capacitaciones -->
                 </div>
               </div>
+              <!-- BOTON CERRAR -->
+              <div class="ln_solid"></div>
+              <div class="center">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+                  <input class="btn btn-primary" style="margin-bottom: 15px;" type="button" onclick="window.close();"
+                  value="Cerrar [X]"/>
+                </div>
+              </div>
             </div>
+          </div>
   		<!-- /page content -->
 
 		<!-- jQuery -->

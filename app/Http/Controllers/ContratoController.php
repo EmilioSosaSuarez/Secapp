@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Contrato;
+use App\Persona;
+use App\AsignacionRC;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\DB;
 
 class ContratoController extends Controller
 {
@@ -28,7 +31,7 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        //
+          return view('admin/contrato/create');
     }
 
     /**
@@ -39,7 +42,9 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Contrato::create( $request ->all() );
+      $message="El alta del contrato se realizó satisfactoriamente";
+      return redirect()->route('admin.contrato.create')->with('message',$message);
     }
 
     /**
@@ -50,7 +55,9 @@ class ContratoController extends Controller
      */
     public function show($id)
     {
-        //
+        $contrato = Contrato::find($id);
+
+        return view('contratoshow', compact('contrato'));
     }
 
     /**
@@ -59,9 +66,9 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(contrato $contrato)
     {
-        //
+        return view('admin.contrato.edit', ['contrato' => $contrato]);//
     }
 
     /**
@@ -71,9 +78,11 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(contrato $contrato)
     {
-        //
+        $contrato->update(request()->all());
+
+        return redirect()->route('admin.contrato.lista');//
     }
 
     /**
@@ -82,8 +91,58 @@ class ContratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(contrato $contrato)
     {
-        //
+        $contrato->delete();
+
+        return redirect()->route('admin.contrato.lista');
     }
+
+    public function lista()
+    {
+      $contratos = Contrato::all();
+
+      return view('admin/contrato/lista')->with('contratos', $contratos);
+
+    }
+
+    public function recursos(Contrato $contrato)
+    {
+
+      $personas = Persona::all();
+
+      $recursos = DB::table('personas') ->join('asignacionrc', 'asignacionrc.id_persona', '=', 'personas.id')
+                   ->where('asignacionrc.id_contrato','=', $contrato->id)
+                   ->select('personas.dni','personas.apellido','personas.nombre')
+                   ->get();
+
+      return view('listarecursos')->with('recursos', $recursos)->with('contrato', $contrato)->with('personas', $personas);
+
+    }
+
+    public function asignar(Request $request)
+    {
+       // $recursos = new AsignacionRC;
+       // $recursos->id_contrato = Input::get('id_contrato');
+       // $recursos->id_persona = Input::get('id_persona');
+       // $recursos->save();
+
+
+      AsignacionRC::create( $request ->all() );
+      $message="Vinculacion Satisfactoria";
+      $contrato = Contrato::find($request->id_contrato);
+
+      return redirect()->route('listarecursos', $contrato)->with('message',$message);
+      // return redirect()->route('admin.contrato.lista')->with('message',$message);
+
+    }
+
+    public function desasignar(recursos $recursos)
+    {
+        $recursos->delete();
+
+        return redirect()->route('listarecursos');
+    }
+
+
 }
