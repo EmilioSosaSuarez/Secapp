@@ -42,6 +42,10 @@ class incidenteController extends Controller
      */
     public function store(Request $request)
     {
+         $this->validate($request, [
+         'plazo' => 'integer|min:1|max:2',
+         ]);
+
         RegistroDeIncidente::create( $request ->all() );
         $message="El Registro de Accidente / Incidente se creo satisfactoriamente";
         return redirect()->route('admin.incidente.create')->with('message',$message);
@@ -100,7 +104,7 @@ class incidenteController extends Controller
         //
     }
 
- public function pdf(int $id){
+public function pdf(int $id){
       $incidente = RegistroDeIncidente::find($id);
       //dd($incidentes);
       $fecha = Carbon::now();
@@ -108,6 +112,13 @@ class incidenteController extends Controller
       $pdf = PDF::loadView('admin.incidente.report', compact('incidente'));
       $nombreArchivo = 'Incidente_'. $fecha->format('H:m:s'). '.pdf';
       return $pdf->download($nombreArchivo);
+    }
+
+public function ver(int $id)
+    {
+
+        $incidente = RegistroDeIncidente::find($id);
+        return view('admin/incidente/show', [ 'incidente' => $incidente ]);
     }
 
 }

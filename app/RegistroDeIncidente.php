@@ -28,6 +28,5 @@ class RegistroDeIncidente extends Model
 }
 
 
- // public function vehiculo(){
- //   return $this->belongsTo(Vehiculo::class, 'vehiculoId');
+
  // }

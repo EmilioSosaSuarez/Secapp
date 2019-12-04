@@ -55,7 +55,7 @@
 
 
 		      <td>
-                <a href="{{ route('admin.incidente.busquedaIndex') }}" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                <a href="{{ route('admin.incidente.ver' , $incidente->id) }}" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
                 <a href="{{ route('admin.incidente.busquedaIndex') }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
                 <form method="POST" action="{{ route('admin.incidente.busquedaIndex') }}" style="display: inline;">
                 @csrf @method('DELETE')

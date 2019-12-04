@@ -34,6 +34,7 @@ Route::delete('/BusquedaDePersonas-{id}','PersonaController@destroy')->name('adm
 
 
 //INCIDENTES ACCIDENTES
+Route::get('/VerIncidente-{id}','IncidenteController@ver')->name('admin.incidente.ver');
 Route::get('/AltaIncidente','IncidenteController@create')->name('admin.incidente.create');
 Route::post('/AltaIncidente','IncidenteController@store')->name('admin.incidente.store');
 Route::get('/BusquedaDeIncidente','IncidenteController@Index')->name('admin.incidente.busquedaIndex');

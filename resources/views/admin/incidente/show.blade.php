@@ -64,24 +64,20 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Nuevo Registro de Accidente / Incidente:</h2>
+                    <h2>Registro de Accidente / Incidente:</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
                         <form method="POST" action="{{ route('admin.incidente.store') }}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       @csrf
-                                <div class="form-group row">
-                                    <label class="control-label col-md-3 col-sm-3 ">Tipo de Suceso: <span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6 ">
-                                 <select class="form-control col-md-7 col-xs-12" type="text" id="tiposuceso" name="tiposuceso" required="required" >
-                                    <option disabled selected>Selecciona una opción</option>
-                                    <option value="{{ old('tiposuceso') }}" {{ old('tiposuceso') =='Acto inseguro' ? 'selected' : ''}}>Acto inseguro</option>
-                                    <option>Incidente</option>
-                                    <option>Condicion insegura</option>
-                                    <option>Accidente</option>
-                                </select>
-                             </div>
+
+
+                            <div class="form-group"> {{-- cada uno de estos es un campo a editar, por ejemplo Apellido --}}
+                                    <label class="control-label col-md-3 col-sm-3 " for="apellido">Tipo de Suceso: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="apellido" name="apellido" value="{{ old('tiposuceso', $incidente->tiposuceso) }}"readonly="true" class="form-control col-md-7 col-xs-12">
+                                </div>
                             </div>
 
 
@@ -92,173 +88,169 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Sector <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="string" id="sector" name="sector" required="required" class="form-control col-md-7 col-xs-12" value="{{ old('sector') }}">
+                                        <input type="string" id="sector" name="sector" required="required" value="{{ old('sector', $incidente->sector) }}"readonly="true"class="form-control col-md-7 col-xs-12">
                                     </div>
                             </div>
+
+
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del suceso  <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <fieldset>
-                                            <div class="control-group">
-                                                <div class="controls">
-                                                    <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left" name="fecha"  id="single_cal1" placeholder="" aria-describedby="inputSuccess2Status">
-                                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span><span id="inputSuccess2Status" class="sr-only">(success)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
+
+                                         <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="string" id="fecha" name="fecha" required="required" value="{{ date('d-m-Y', strtotime($incidente->fecha)) }}"readonly="true"class="form-control col-md-7 col-xs-12">
+
                                     </div>
+
+
                             </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Turno: <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control col-md-7 col-xs-12" type="text" id="turno" name="turno" required="required">
-                                            <option disabled selected>Selecciona una opción</option>
-                                            <option>Mañana</option>
-                                            <option>Tarde</option>
-                                            <option>Noche</option>
-                                            </select>
+                                     <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="string" id="turno" name="turno" required="required" value="{{ old('turno', $incidente->turno) }}"readonly="true"class="form-control col-md-7 col-xs-12">
                                     </div>
                             </div>
+
+
+
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Horario: <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control col-md-7 col-xs-12" type="text" id="horario" name="horario" required="required">
-                                            <option disabled selected>Selecciona una opción</option>
-                                            <option>Normal</option>
-                                            <option>Extra</option>
-                                        </select>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="string" id="horario" name="horario" required="required" value="{{ old('horario', $incidente->horario) }}"readonly="true"class="form-control col-md-7 col-xs-12">
                                     </div>
                             </div>
+
+
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nacionalidad">Hora del suceso <span class="required">*</span></label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <input type="time" id="hsSuceso" name="hsSuceso" required="required" class="form-control col-md-3 col-xs-3">
+                                        <input type="time" id="hsSuceso" name="hsSuceso"  value="{{ old('hsSuceso', $incidente->hsSuceso) }}"readonly="true"required="required" class="form-control col-md-3 col-xs-3">
                                     </div>
                             </div>
+
+
                              <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Persona Afectada: <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control col-md-7 col-xs-12" type="text" id="personaId" name="personaId" required="required">
-                                            <option disabled selected>Selecciona una opción</option>
-                                                 @foreach ($personas as $persona)
-                                            <option value="{{ $persona->nombre }}" {{ old('personaId') == $persona->id ? 'selected' : ''}}>{{ $persona->apellido }}</option>
-                                                 @endforeach
-                                        </select>
-                                    </div>
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="string" id="personaId" name="personaId" required="required" value="{{ old('personaId', $incidente->personaId) }}"readonly="true"class="form-control col-md-7 col-xs-12">
+                                        </div>
+
                             </div>
+
+
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Tarea habitual <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div id="tareaHabitual" class="btn-group" data-toggle="buttons">
-                                            <p>
-                                                SI:  <input type="radio" class="flat" name="tareaHabitual" id="si" value="Si" checked="" required />&nbsp;
-                                                &nbsp; NO: <input type="radio" class="flat" name="tareaHabitual" id="no" value="No" />
-                                            </p>
+                                         <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="string" id="tareaHabitual" name="tareaHabitual" required="required" value="{{ old('tareaHabitual', $incidente->tareaHabitual) }}"readonly="true"class="form-control col-md-7 col-xs-12">
                                         </div>
-                                    </div>
                             </div>
+
+
+
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Capacitacion Previa: <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control col-md-7 col-xs-12" type="text" id="capacitacion" name="capacitacion" required="required">
-                                            <option disabled selected>Selecciona una opción</option>
-                                            <option >SI</option>
-                                            <option >No</option>
-                                            {{--  Este deve ser el for que traiga las capacitaciones  --}}
-                                    <!--
-                                            @foreach ($personas as $persona)
+
+                                        <input type="string" id="capacitacion" name="capacitacion" required="required" value="{{ old('capacitacion', $incidente->capacitacion) }}"readonly="true"class="form-control col-md-7 col-xs-12">
+
+                                             <!--Este deve ser el for que traiga las capacitaciones -->
+
+                                           {{--  @foreach ($personas as $persona)
                                             <option value="{{ $persona->nombre }}" {{ old('personaId') == $persona->id ? 'selected' : ''}}>{{ $persona->nombre }}</option>
-                                            @endforeach
-                                    -->
-                                        </select>
+                                            @endforeach --}}
+
+                                    </div>
+
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3 col-sm-3 ">Permiso de Trabajo:</label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                         <input type="string" id="permiso" name="permiso" required="required" value="{{ old('permiso', $incidente->permiso) }}"readonly="true"class="form-control col-md-7 col-xs-12">
                                     </div>
                             </div>
+
+
+
                             <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">Permiso de Trabajo: <span class="required">*</span></label>
+                                <label class="control-label col-md-3 col-sm-3 ">2. Descripcion del suceso</label>
+
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <textarea class="form-control" rows="3" type="text" id="descripcion" name="descripcion" readonly="true" >{{ ($incidente->descripcion) }}</textarea>
+                                    </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3 col-sm-3 ">3. Clasificación:</label>
                                      <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control col-md-7 col-xs-12" type="text" id="permiso" name="permiso" required="required">
-                                            <option disabled selected>Selecciona una opción</option>
-                                            <option>Frio</option>
-                                            <option>Caliente</option>
-                                            <option>Electrico</option>
-                                            <option>Espacio Confinado</option>
-                                        </select>
+                                         <input type="string" id="clasificacion" name="clasificacion" required="required" value="{{ old('clasificacion', $incidente->clasificacion) }}"readonly="true"class="form-control col-md-7 col-xs-12">
                                     </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">2. Descripcion del suceso <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <textarea class="form-control" rows="3" type="text" id="descripcion" name="descripcion"placeholder="Descripcion del suceso"></textarea>
-                                    </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">3. Clasificación: <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control col-md-7 col-xs-12" type="text" id="clasificacion" name="clasificacion" required="required">
-                                            <option disabled selected>Selecciona una opción</option>
-                                            <option>Perdida de materiales medio</option>
-                                            <option>Trabajo restringido</option>
-                                            <option>Tratamiento médico</option>
-                                            <option>Primeros auxilios</option>
-                                            <option>Perdida de días</option>
-                                            <option>In itinere</option>
-                                            <option>Emergencia</option>
-                                            <option>Incidente</option>
-                                            <option>Reclamo</option>
-                                        </select>
-                                    </div>
-                            </div>
+
+
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">4.Causas:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         ¿Que actos, condiciones inseguras, factores laborales causaron o pudieron causar el suceso?
                                     </div>
                             </div>
+
+
                             <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">Causas inmediatas <span class="required">*</span></label>
+                                <label class="control-label col-md-3 col-sm-3 ">Causas inmediatas</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <textarea class="form-control" type="text" rows="3" placeholder="Causas inmediatas" id="causasInmediatas" name="causasInmediatas" required="required"></textarea>
+                                        <textarea class="form-control" rows="3" type="text" id="causasInmediatas" name="causasInmediatas" readonly="true" >{{ ($incidente->causasInmediatas) }}</textarea>
                                     </div>
                             </div>
+
+
                             <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">Causas básicas <span class="required">*</span></label>
+                                <label class="control-label col-md-3 col-sm-3 ">Causas básicas</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <textarea class="form-control" type="text" rows="3" placeholder="Causas básicas" id="causasBasicas" name="causasBasicas" required="required"></textarea>
+                                        <textarea class="form-control" rows="3" type="text" id="causasBasicas" name="causasBasicas" readonly="true" >{{ ($incidente->causasBasicas) }}</textarea>
                                     </div>
                             </div>
+
+
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">5. Acciones correctivas / preventivas:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         ¿que se ha hecho o debería hacerse para controlar las causas del suceso?
                                     </div>
                             </div>
+
+
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <textarea class="form-control" type="text" rows="2" placeholder="Acciones correctivas" id="accionesCorrectivas" name="accionesCorrectivas" required="required"></textarea>
+                                        <textarea class="form-control" rows="3" type="text" id="accionesCorrectivas" name="accionesCorrectivas" readonly="true" >{{ ($incidente->accionesCorrectivas) }}</textarea>
                                     </div>
                             </div>
+
+
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Accion remedial <span class="required">*</span></label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Accion remedial</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="accionRemedial" name="accionRemedial" required="required" class="form-control col-md-7 col-xs-12">
+                                        <textarea class="form-control" rows="3" type="text" id="accionRemedial" name="accionRemedial" readonly="true" >{{ ($incidente->accionRemedial) }}</textarea>
                                     </div>
                             </div>
-                            <div class="form-group {{ $errors->has('plazo') ? ' is-invalid' : '' }}">
+
+
+                            <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Plazo <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12" >
-                                        <input type="integer" id="plazo" name="plazo" required="required" class="form-control col-md-7 col-xs-12">
-                                         {!! $errors->first('plazo', '<span class="text-danger">:message</span>') !!}
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="integer" id="plazo" name="plazo" required="required" value="{{ old('sector', $incidente->plazo) }}"  readonly="true"class="form-control col-md-7 col-xs-12">
                                     </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-9 col-sm-9  offset-md-3">
-                                    <button type="button" class="btn btn-primary">Cancelar</button>
-                                    <button type="reset" class="btn btn-primary">Borrar</button>
-                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:right;">
+                                        <input class="btn btn-primary" style="margin-bottom: 15px;" type="button" onclick="window.close();" value="Cerrar [X]"/>
+                                    </div>
                                 </div>
                             </div>
                         </form>
