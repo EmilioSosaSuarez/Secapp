@@ -429,13 +429,20 @@ class ComposerStaticInitc035802404f4124a13f86baf888b7bb3
     );
 
     public static $classMap = array (
+        'App\\AsignacionRC' => __DIR__ . '/../..' . '/app/AsignacionRC.php',
+        'App\\Capacitaciones' => __DIR__ . '/../..' . '/app/Capacitaciones.php',
+        'App\\CapacitacionesDictado' => __DIR__ . '/../..' . '/app/CapacitacionesDictado.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Contrato' => __DIR__ . '/../..' . '/app/Contrato.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\CapacitacionesCalendarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/CapacitacionesCalendarioController.php',
+        'App\\Http\\Controllers\\CapacitacionesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CapacitacionesController.php',
+        'App\\Http\\Controllers\\CapacitacionesDictadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CapacitacionesDictadoController.php',
         'App\\Http\\Controllers\\ContratoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContratoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\PersonaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PersonaController.php',
@@ -448,6 +455,7 @@ class ComposerStaticInitc035802404f4124a13f86baf888b7bb3
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\ParticipantesDictadoCap' => __DIR__ . '/../..' . '/app/ParticipantesDictadoCap.php',
         'App\\Persona' => __DIR__ . '/../..' . '/app/Persona.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
